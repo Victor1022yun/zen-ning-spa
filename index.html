@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>禅宁 SPA · Zen Ning Wellness · Kuala Lumpur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand:  { 50:'#FBF8F3', 100:'#F7EDE2', 200:'#EDD9C4', 300:'#DFCBB0' },
+            sage:  { 400:'#7A9E6E', 500:'#4A6741', 600:'#3A5232' },
+            umber: { 700:'#523020', 800:'#3D2314', 900:'#2D1B0E' },
+            brass: { 200:'#E8D0B4', 300:'#D9BC98', 400:'#C9A98A', 500:'#A88060' },
+            taupe: { 400:'#A8907E', 500:'#8B6F5E', 600:'#6E5347' },
+            mint:  { 50:'#F2F7F0', 100:'#E8F2E5' }
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body:    ['Jost', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      box-sizing: border-box;
+      padding-top:    env(safe-area-inset-top,    0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: light; } }
+    *, *::before, *::after { box-sizing: inherit; }
+    html { height: 100%; }
+    body { font-family: 'Jost', system-ui, sans-serif; background: #F7EDE2; color: #2D1B0E; }
+
+    /* Safe-area notch fill behind sticky header */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0 0 auto;
+      height: env(safe-area-inset-top, 0px);
+      background: #FBF8F3;
+      z-index: 60;
+    }
+    #site-header { top: env(safe-area-inset-top, 0px); }
+
+    /* ── Page routing ─────────────────────── */
+    .page { display: none; }
+    .page.active {
+      display: block;
+      animation: pgIn .34s ease both;
+    }
+    @keyframes pgIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .page.active { animation: none; }
+    }
+
+    /* ── Scroll reveal (re-triggered per page) ── */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } }
+
+    /* ── Ornament divider ── */
+    .ornament {
+      display: flex; align-items: center; gap: .9rem; margin-bottom: 1.1rem;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, transparent, #C9A98A, transparent);
+      opacity: .7;
+    }
+
+    /* ── Nav links ── */
+    .nav-link {
+      position: relative;
+      font-size: .825rem;
+      letter-spacing: .025em;
+      padding-bottom: 2px;
+      transition: color .2s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px; background: #4A6741;
+      transition: width .22s ease;
+    }
+    .nav-link:hover::after, .nav-link.nav-active::after { width: 100%; }
+    .nav-link.nav-active { color: #4A6741; }
+
+    /* Mobile nav active */
+    .mob-nav-link { transition: color .2s; }
+    .mob-nav-link.nav-active { color: #4A6741; font-weight: 500; }
+
+    /* ── Hero ── */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 60% 70% at 20% 55%, rgba(74,103,65,.22) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(201,169,138,.14) 0%, transparent 50%),
+        linear-gradient(165deg, #2D1B0E 0%, #3A2C1E 35%, #2A3828 70%, #1E2A1A 100%);
+    }
+    .hero-vignette {
+      background: linear-gradient(to bottom, rgba(45,27,14,.35) 0%, rgba(45,27,14,.18) 55%, rgba(45,27,14,.52) 100%);
+    }
+
+    /* ── Service cards ── */
+    .s-card {
+      background: #FAF7F2;
+      border: 1px solid rgba(201,169,138,.30);
+      transition: box-shadow .28s ease, transform .28s ease;
+    }
+    .s-card:hover { box-shadow: 0 10px 36px rgba(45,27,14,.10); transform: translateY(-4px); }
+
+    /* ── Form inputs ── */
+    .f-input {
+      width: 100%; background: #fff;
+      border: 1px solid rgba(201,169,138,.40);
+      border-radius: .75rem; padding: .6rem 1rem;
+      font-size: .875rem; font-family: 'Jost', system-ui, sans-serif;
+      color: #2D1B0E; transition: border-color .2s; outline: none;
+    }
+    .f-input::placeholder { color: #A8907E; }
+    .f-input:focus { border-color: #4A6741; }
+
+    /* ── Mobile floating bar ── */
+    #mob-menu { display: none; }
+    #mob-menu.open { display: block; }
+    .mob-bar { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════ HEADER (always visible) ═══════════ -->
+<header id="site-header" class="sticky z-50 bg-sand-50 border-b border-brass-300/40 shadow-sm">
+  <nav class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+
+    <!-- Logo → home -->
+    <a href="#home" class="flex items-center gap-2.5" data-nav="home" onclick="nav('home')">
+      <div class="w-9 h-9 rounded-full bg-sage-500 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-spa text-sand-50 text-sm"></i>
+      </div>
+      <div class="leading-none">
+        <span class="font-display text-[1.2rem] font-semibold text-umber-900 tracking-tight">禅宁 <span class="text-sage-500">SPA</span></span>
+        <p class="text-[.65rem] text-taupe-500 font-body tracking-widest mt-px">ZEN NING WELLNESS</p>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-7 font-body text-umber-800">
+      <a href="#services"   class="nav-link" data-nav="services"   onclick="nav('services')">服务项目</a>
+      <a href="#facilities" class="nav-link" data-nav="facilities" onclick="nav('facilities')">店铺环境</a>
+      <a href="#reviews"    class="nav-link" data-nav="reviews"    onclick="nav('reviews')">顾客评价</a>
+      <a href="#contact"    class="nav-link" data-nav="contact"    onclick="nav('contact')">联系我们</a>
+    </div>
+
+    <!-- Desktop CTA + hamburger -->
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/60123456789?text=您好，我想预约按摩服务" target="_blank"
+         class="hidden md:inline-flex items-center gap-2 bg-sage-500 hover:bg-sage-600 text-white font-body text-sm px-5 py-2 rounded-full transition-colors">
+        <i class="fa-brands fa-whatsapp text-base"></i>立即预约
+      </a>
+      <button id="ham-btn" class="md:hidden p-2 text-umber-800" aria-label="菜单">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div id="mob-menu" class="md:hidden bg-sand-50 border-t border-brass-300/25 px-5 pb-5 pt-4 space-y-3">
+    <a href="#services"   class="mob-nav-link block font-body text-umber-800 py-1" data-nav="services"   onclick="nav('services');closeMob()">服务项目</a>
+    <a href="#facilities" class="mob-nav-link block font-body text-umber-800 py-1" data-nav="facilities" onclick="nav('facilities');closeMob()">店铺环境</a>
+    <a href="#reviews"    class="mob-nav-link block font-body text-umber-800 py-1" data-nav="reviews"    onclick="nav('reviews');closeMob()">顾客评价</a>
+    <a href="#contact"    class="mob-nav-link block font-body text-umber-800 py-1" data-nav="contact"    onclick="nav('contact');closeMob()">联系我们</a>
+    <a href="https://wa.me/60123456789?text=您好，我想预约按摩服务" target="_blank"
+       class="flex items-center justify-center gap-2 bg-sage-500 text-white font-body text-sm py-2.5 rounded-full mt-2 transition-colors hover:bg-sage-600">
+      <i class="fa-brands fa-whatsapp"></i>WhatsApp 预约
+    </a>
+  </div>
+</header>
+
+
+<!-- ═══════════ APP ═══════════ -->
+<div id="app">
+
+  <!-- ══ PAGE: HOME ══════════════════════════════ -->
+  <div id="page-home" class="page">
+    <section class="relative min-h-[93vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 hero-bg"></div>
+      <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(ellipse 2px 60px at 15% 30%,#C9A98A 0%,transparent 100%),radial-gradient(ellipse 1px 80px at 18% 25%,#C9A98A 0%,transparent 100%),radial-gradient(ellipse 2px 50px at 85% 60%,#7A9E6E 0%,transparent 100%),radial-gradient(ellipse 1px 70px at 88% 55%,#7A9E6E 0%,transparent 100%);"></div>
+      <div class="absolute inset-0 hero-vignette"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-2xl mx-auto">
+        <div class="inline-flex items-center gap-3 mb-7">
+          <span class="w-7 h-px bg-brass-400 opacity-80"></span>
+          <span class="font-body text-[.7rem] tracking-[.2em] text-brass-300 uppercase">Kuala Lumpur · Premium SPA</span>
+          <span class="w-7 h-px bg-brass-400 opacity-80"></span>
+        </div>
+
+        <h1 class="font-display text-[2.6rem] sm:text-5xl md:text-[3.4rem] font-light text-white leading-[1.18] mb-5">
+          让身体回归<br>
+          <span class="text-brass-300 italic font-normal">它本来的宁静</span>
+        </h1>
+
+        <p class="font-body text-white/65 text-[.95rem] md:text-base font-light leading-relaxed mb-10 max-w-lg mx-auto">
+          融合东方古法精髓与现代理疗技艺，每一次抚触皆是对身心的温柔修复。源自自然，归于平衡。
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://wa.me/60123456789?text=您好，我想预约按摩服务" target="_blank"
+             class="inline-flex items-center justify-center gap-2.5 bg-sage-500 hover:bg-sage-600 text-white font-body text-sm px-7 py-3.5 rounded-full transition-colors">
+            <i class="fa-brands fa-whatsapp text-lg"></i>WhatsApp 在线预约
+          </a>
+          <a href="tel:+60123456789"
+             class="inline-flex items-center justify-center gap-2.5 border border-white/45 hover:bg-white/10 text-white font-body text-sm px-7 py-3.5 rounded-full transition-colors">
+            <i class="fa-solid fa-phone text-sm"></i>+60 12-345 6789
+          </a>
+        </div>
+
+        <div class="mt-14 grid grid-cols-3 divide-x divide-white/15 max-w-xs mx-auto">
+          <div class="px-4">
+            <p class="font-display text-[1.7rem] text-brass-300 font-light leading-none">8年</p>
+            <p class="text-white/40 text-[.68rem] font-body mt-1 tracking-wide">专业经验</p>
+          </div>
+          <div class="px-4">
+            <p class="font-display text-[1.7rem] text-brass-300 font-light leading-none">5000+</p>
+            <p class="text-white/40 text-[.68rem] font-body mt-1 tracking-wide">满意顾客</p>
+          </div>
+          <div class="px-4">
+            <p class="font-display text-[1.7rem] text-brass-300 font-light leading-none">4.9★</p>
+            <p class="text-white/40 text-[.68rem] font-body mt-1 tracking-wide">顾客评分</p>
+          </div>
+        </div>
+
+        <!-- Quick nav pills -->
+        <div class="mt-12 flex flex-wrap justify-center gap-3">
+          <button onclick="nav('services')" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white font-body text-xs px-4 py-2 rounded-full transition-colors border border-white/15">
+            <i class="fa-solid fa-hands text-brass-400"></i>服务项目
+          </button>
+          <button onclick="nav('facilities')" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white font-body text-xs px-4 py-2 rounded-full transition-colors border border-white/15">
+            <i class="fa-solid fa-leaf text-sage-400"></i>店铺环境
+          </button>
+          <button onclick="nav('reviews')" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white font-body text-xs px-4 py-2 rounded-full transition-colors border border-white/15">
+            <i class="fa-solid fa-star text-brass-400"></i>顾客评价
+          </button>
+          <button onclick="nav('contact')" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white font-body text-xs px-4 py-2 rounded-full transition-colors border border-white/15">
+            <i class="fa-solid fa-location-dot text-sage-400"></i>联系我们
+          </button>
+        </div>
+      </div>
+
+      <div class="absolute bottom-7 left-1/2 -translate-x-1/2 animate-bounce text-white/35">
+        <i class="fa-solid fa-chevron-down text-xs"></i>
+      </div>
+    </section>
+  </div><!-- /page-home -->
+
+
+  <!-- ══ PAGE: SERVICES ══════════════════════════ -->
+  <div id="page-services" class="page">
+    <section class="bg-sand-100 py-16 px-5 min-h-screen">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-14 reveal">
+          <div class="ornament justify-center">
+            <span class="font-display italic text-taupe-500 text-sm">我们的服务</span>
+          </div>
+          <h2 class="font-display text-3xl md:text-[2.4rem] font-light text-umber-900 mb-3">精心设计的理疗项目</h2>
+          <p class="font-body text-taupe-500 text-sm max-w-sm mx-auto leading-relaxed">
+            每项服务由专业持证理疗师主理，量身定制力度与手法，给您最适切的疗愈体验。
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <!-- Card 1 Thai -->
+          <div class="s-card rounded-2xl overflow-hidden reveal">
+            <div class="relative h-44 overflow-hidden" style="background:linear-gradient(145deg,#3A2518,#5C3D2E);">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fa-solid fa-hands text-[3.5rem] text-brass-400/40"></i>
+              </div>
+              <span class="absolute bottom-4 left-5 bg-brass-500/30 backdrop-blur-sm text-brass-200 text-[.65rem] font-body px-3 py-1 rounded-full">经典推荐</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-xl font-semibold text-umber-900 mb-0.5">泰式古法按摩</h3>
+              <p class="text-[.72rem] text-taupe-400 font-body mb-3 tracking-wide">Traditional Thai Massage</p>
+              <p class="text-[.83rem] text-taupe-600 font-body leading-relaxed mb-5">源自泰国寺庙的古老技艺，结合压穴、伸展与经络疏导，全面松解肌肉紧张，促进气血运行。</p>
+              <div class="border-t border-brass-300/25 pt-4 flex items-end justify-between">
+                <div>
+                  <p class="text-[.68rem] text-taupe-400 font-body mb-1">可选时长</p>
+                  <p class="text-[.75rem] text-taupe-600 font-body">60 · 90 · 120 分钟</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-display text-2xl text-sage-500 leading-none">RM 88</p>
+                  <p class="text-[.68rem] text-taupe-400 font-body mt-0.5">起 / 60 分钟</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 Aromatherapy -->
+          <div class="s-card rounded-2xl overflow-hidden reveal relative ring-2 ring-sage-500/35" style="transition-delay:.10s">
+            <span class="absolute top-3 right-3 z-10 bg-sage-500 text-white text-[.65rem] font-body px-3 py-1 rounded-full">热销</span>
+            <div class="relative h-44 overflow-hidden" style="background:linear-gradient(145deg,#3A5232,#5A7A50);">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fa-solid fa-droplet text-[3.5rem] text-sage-300/35"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-xl font-semibold text-umber-900 mb-0.5">精油芳香 SPA</h3>
+              <p class="text-[.72rem] text-taupe-400 font-body mb-3 tracking-wide">Aromatherapy Oil Massage</p>
+              <p class="text-[.83rem] text-taupe-600 font-body leading-relaxed mb-5">精选东南亚天然植物精油，以缓和的瑞典式手法融合深层组织按摩，滋养肌肤，愉悦感官，深度舒压。</p>
+              <div class="border-t border-brass-300/25 pt-4 flex items-end justify-between">
+                <div>
+                  <p class="text-[.68rem] text-taupe-400 font-body mb-1">可选时长</p>
+                  <p class="text-[.75rem] text-taupe-600 font-body">60 · 90 · 120 分钟</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-display text-2xl text-sage-500 leading-none">RM 108</p>
+                  <p class="text-[.68rem] text-taupe-400 font-body mt-0.5">起 / 60 分钟</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 Foot -->
+          <div class="s-card rounded-2xl overflow-hidden reveal" style="transition-delay:.20s">
+            <div class="relative h-44 overflow-hidden" style="background:linear-gradient(145deg,#5C4030,#8B6F5E);">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i class="fa-solid fa-shoe-prints text-[3.5rem] text-brass-200/35"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display text-xl font-semibold text-umber-900 mb-0.5">足底反射理疗</h3>
+              <p class="text-[.72rem] text-taupe-400 font-body mb-3 tracking-wide">Reflexology Foot Therapy</p>
+              <p class="text-[.83rem] text-taupe-600 font-body leading-relaxed mb-5">通过刺激足部反射区，配合热石舒压，改善睡眠质量，提升整体免疫与代谢机能。</p>
+              <div class="border-t border-brass-300/25 pt-4 flex items-end justify-between">
+                <div>
+                  <p class="text-[.68rem] text-taupe-400 font-body mb-1">可选时长</p>
+                  <p class="text-[.75rem] text-taupe-600 font-body">45 · 60 · 90 分钟</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-display text-2xl text-sage-500 leading-none">RM 68</p>
+                  <p class="text-[.68rem] text-taupe-400 font-body mt-0.5">起 / 45 分钟</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Extra services banner -->
+        <div class="mt-8 bg-sand-50 border border-brass-300/30 rounded-2xl p-6 reveal flex flex-col sm:flex-row items-center justify-between gap-4" style="transition-delay:.30s">
+          <div>
+            <p class="font-display text-base font-semibold text-umber-900 mb-1">更多专属服务</p>
+            <p class="text-[.83rem] text-taupe-500 font-body">热石按摩 · 产前护理 · 肩颈理疗 · 情侣套餐</p>
+          </div>
+          <a href="https://wa.me/60123456789?text=您好，请问有哪些服务可以预约？" target="_blank"
+             class="shrink-0 inline-flex items-center gap-2 bg-sage-500 hover:bg-sage-600 text-white font-body text-sm px-5 py-2.5 rounded-full transition-colors">
+            <i class="fa-brands fa-whatsapp"></i>WhatsApp 咨询
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </div><!-- /page-services -->
+
+
+  <!-- ══ PAGE: FACILITIES ════════════════════════ -->
+  <div id="page-facilities" class="page">
+    <section class="bg-mint-50 py-16 px-5 min-h-screen">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Facilities -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+
+          <div class="grid grid-cols-2 gap-3 reveal">
+            <div class="col-span-2 h-52 rounded-2xl overflow-hidden relative" style="background:linear-gradient(135deg,#2D1B0E,#3A5232);">
+              <div class="absolute inset-0 opacity-15 flex items-center justify-center">
+                <i class="fa-solid fa-leaf text-[6rem] text-brass-300"></i>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-r from-umber-900/40 to-transparent"></div>
+              <div class="absolute bottom-5 left-5 text-white/75 font-body text-sm">
+                <p class="font-display text-lg font-light text-white/90">迎宾大厅 &amp; 接待区</p>
+                <p class="text-[.72rem] text-white/50 mt-0.5">Reception Lounge</p>
+              </div>
+            </div>
+            <div class="h-32 rounded-2xl overflow-hidden relative" style="background:linear-gradient(145deg,#3A5232,#5A7A50);">
+              <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                <i class="fa-solid fa-bath text-[3rem] text-white"></i>
+              </div>
+              <div class="absolute bottom-3 left-4 text-white/70 font-body text-xs">私密理疗包间</div>
+            </div>
+            <div class="h-32 rounded-2xl overflow-hidden relative" style="background:linear-gradient(145deg,#5C3D2E,#8B6F5E);">
+              <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                <i class="fa-solid fa-mug-hot text-[3rem] text-white"></i>
+              </div>
+              <div class="absolute bottom-3 left-4 text-white/70 font-body text-xs">休息茶室</div>
+            </div>
+          </div>
+
+          <div class="reveal" style="transition-delay:.15s">
+            <div class="ornament">
+              <span class="font-display italic text-taupe-500 text-sm">宁静空间</span>
+            </div>
+            <h2 class="font-display text-3xl md:text-[2.2rem] font-light text-umber-900 leading-snug mb-5">
+              精心营造的<br>疗愈环境
+            </h2>
+            <p class="text-taupe-600 font-body text-sm leading-relaxed mb-6">
+              每一间理疗房均以天然木质、暖沙色调与清新植物为主题精心布置，配备恒温控制与香薰系统，让您在踏入的第一刻便感受到宁静流淌。
+            </p>
+            <ul class="space-y-3.5 text-sm font-body text-taupe-600">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-sage-500 text-xs mt-1 shrink-0"></i>
+                独立私密包间，配置定制草本浸泡足浴
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-sage-500 text-xs mt-1 shrink-0"></i>
+                专属更衣室与淋浴设施，会员独享休息区
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-sage-500 text-xs mt-1 shrink-0"></i>
+                有机花草茶与时令水果礼遇，全程免费提供
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-sage-500 text-xs mt-1 shrink-0"></i>
+                无障碍通道，轮椅友好，门前免费停车
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Team -->
+        <div class="reveal">
+          <div class="text-center mb-10">
+            <div class="ornament justify-center">
+              <span class="font-display italic text-taupe-500 text-sm">我们的团队</span>
+            </div>
+            <h2 class="font-display text-3xl font-light text-umber-900">专业持证理疗师</h2>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center reveal" style="transition-delay:.05s">
+              <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#3A2518,#6E5347);">
+                <i class="fa-solid fa-user text-brass-300/55 text-2xl"></i>
+              </div>
+              <p class="font-body text-sm font-medium text-umber-900">Suraya</p>
+              <p class="font-body text-[.7rem] text-taupe-500 mt-0.5">泰式按摩 · 10 年</p>
+            </div>
+            <div class="text-center reveal" style="transition-delay:.10s">
+              <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#3A5232,#5A7A50);">
+                <i class="fa-solid fa-user text-sage-300/55 text-2xl"></i>
+              </div>
+              <p class="font-body text-sm font-medium text-umber-900">Mei Ling</p>
+              <p class="font-body text-[.7rem] text-taupe-500 mt-0.5">精油 SPA · 7 年</p>
+            </div>
+            <div class="text-center reveal" style="transition-delay:.15s">
+              <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#5C3D2E,#8B6F5E);">
+                <i class="fa-solid fa-user text-brass-200/55 text-2xl"></i>
+              </div>
+              <p class="font-body text-sm font-medium text-umber-900">Priya</p>
+              <p class="font-body text-[.7rem] text-taupe-500 mt-0.5">足底理疗 · 8 年</p>
+            </div>
+            <div class="text-center reveal" style="transition-delay:.20s">
+              <div class="w-20 h-20 mx-auto rounded-full mb-3 flex items-center justify-center overflow-hidden" style="background:linear-gradient(145deg,#2D3B28,#4A6741);">
+                <i class="fa-solid fa-user text-sage-200/55 text-2xl"></i>
+              </div>
+              <p class="font-body text-sm font-medium text-umber-900">Aisha</p>
+              <p class="font-body text-[.7rem] text-taupe-500 mt-0.5">热石疗法 · 6 年</p>
+            </div>
+          </div>
+          <p class="text-center text-[.72rem] text-taupe-400 font-body mt-6">
+            全体理疗师持有 CIBTAC / ITEC 国际认证，定期参与专业进修培训
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </div><!-- /page-facilities -->
+
+
+  <!-- ══ PAGE: REVIEWS ═══════════════════════════ -->
+  <div id="page-reviews" class="page">
+    <section class="bg-umber-900 py-16 px-5 min-h-screen">
+      <div class="max-w-5xl mx-auto">
+
+        <div class="text-center mb-12 reveal">
+          <div class="ornament justify-center">
+            <span class="font-display italic text-brass-400 text-sm">真实心声</span>
+          </div>
+          <h2 class="font-display text-3xl md:text-[2.4rem] font-light text-white">顾客的话</h2>
+          <p class="text-white/40 font-body text-sm mt-2">来自 Google 地图的真实评价</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <div class="bg-white/[.06] border border-white/10 rounded-2xl p-6 reveal">
+            <div class="flex gap-1 mb-4">
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+            </div>
+            <p class="text-white/70 font-body text-sm leading-relaxed mb-5">
+              "预约很方便，到店环境比照片更舒适。Suraya 的泰式按摩手法精准，压到了我长期酸痛的肩颈位置，出来整个人轻了好几公斤。"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-brass-500 flex items-center justify-center text-xs text-white font-body shrink-0">L</div>
+              <div>
+                <p class="text-white/85 text-sm font-body">Liang Wei</p>
+                <p class="text-white/35 text-[.68rem] font-body">Google 评价</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[.06] border border-white/10 rounded-2xl p-6 reveal" style="transition-delay:.10s">
+            <div class="flex gap-1 mb-4">
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+            </div>
+            <p class="text-white/70 font-body text-sm leading-relaxed mb-5">
+              "情侣套餐真的超值，包间装修非常有格调，精油香气让人完全放松。工作日下午来人不多，非常安静，会再来的！"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-sage-500 flex items-center justify-center text-xs text-white font-body shrink-0">S</div>
+              <div>
+                <p class="text-white/85 text-sm font-body">Sarah Tan</p>
+                <p class="text-white/35 text-[.68rem] font-body">Google 评价</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white/[.06] border border-white/10 rounded-2xl p-6 reveal" style="transition-delay:.20s">
+            <div class="flex gap-1 mb-4">
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+              <i class="fa-solid fa-star text-brass-400 text-[.65rem]"></i>
+            </div>
+            <p class="text-white/70 font-body text-sm leading-relaxed mb-5">
+              "足底反射加热石，做完后睡眠改善了不少。Priya 很专业，会解释每个穴位对应的器官，感觉学到了很多，强烈推荐！"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-taupe-600 flex items-center justify-center text-xs text-white font-body shrink-0">A</div>
+              <div>
+                <p class="text-white/85 text-sm font-body">Ahmad Firdaus</p>
+                <p class="text-white/35 text-[.68rem] font-body">Google 评价</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA row -->
+        <div class="mt-12 text-center reveal" style="transition-delay:.30s">
+          <p class="text-white/40 font-body text-sm mb-5">体验后也欢迎为我们留下您的评价</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/60123456789?text=您好，我想预约按摩服务" target="_blank"
+               class="inline-flex items-center justify-center gap-2 bg-sage-500 hover:bg-sage-600 text-white font-body text-sm px-6 py-3 rounded-full transition-colors">
+              <i class="fa-brands fa-whatsapp text-base"></i>立即预约体验
+            </a>
+            <button onclick="nav('contact')"
+               class="inline-flex items-center justify-center gap-2 border border-white/30 hover:bg-white/10 text-white font-body text-sm px-6 py-3 rounded-full transition-colors">
+              <i class="fa-solid fa-calendar-check text-sm"></i>在线填写预约表单
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div><!-- /page-reviews -->
+
+
+  <!-- ══ PAGE: CONTACT ═══════════════════════════ -->
+  <div id="page-contact" class="page">
+    <section class="bg-sand-100 py-16 px-5 min-h-screen">
+      <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-14 reveal">
+          <div class="ornament justify-center">
+            <span class="font-display italic text-taupe-500 text-sm">预约 &amp; 到访</span>
+          </div>
+          <h2 class="font-display text-3xl md:text-[2.4rem] font-light text-umber-900">来访 · 联系我们</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+
+          <!-- Left info -->
+          <div class="space-y-5 reveal">
+
+            <div class="bg-sand-50 border border-brass-300/30 rounded-2xl p-6">
+              <h3 class="font-display text-lg font-semibold text-umber-900 flex items-center gap-2 mb-4">
+                <i class="fa-regular fa-clock text-sage-500 text-sm"></i>营业时间
+              </h3>
+              <div class="space-y-2.5 font-body text-sm">
+                <div class="flex justify-between text-taupe-600">
+                  <span>周一 至 周五</span>
+                  <span class="text-umber-900 font-medium">10:00 — 22:00</span>
+                </div>
+                <div class="flex justify-between text-taupe-600">
+                  <span>周六、周日及公假</span>
+                  <span class="text-umber-900 font-medium">09:00 — 23:00</span>
+                </div>
+                <p class="text-[.72rem] text-sage-500 pt-1">
+                  <i class="fa-solid fa-circle-info mr-1"></i>最后预约时间为关门前 90 分钟
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-sand-50 border border-brass-300/30 rounded-2xl p-6">
+              <h3 class="font-display text-lg font-semibold text-umber-900 flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-location-dot text-sage-500 text-sm"></i>地址 &amp; 联系
+              </h3>
+              <div class="space-y-3 text-sm font-body text-taupe-600">
+                <p class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-map-pin text-brass-400 text-xs mt-1 shrink-0"></i>
+                  <span>No. 12, Jalan Ampang, 50450 Kuala Lumpur<br>
+                    <span class="text-[.72rem] text-taupe-400">靠近 KLCC 双子塔，捷运 Ampang Park 站步行 5 分钟</span>
+                  </span>
+                </p>
+                <p class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-phone text-brass-400 text-xs shrink-0"></i>
+                  <a href="tel:+60123456789" class="hover:text-umber-900 transition-colors">+60 12-345 6789</a>
+                </p>
+                <p class="flex items-center gap-2.5">
+                  <i class="fa-brands fa-whatsapp text-sage-500 text-xs shrink-0"></i>
+                  <a href="https://wa.me/60123456789" target="_blank" class="hover:text-umber-900 transition-colors">WhatsApp 在线咨询</a>
+                </p>
+                <p class="flex items-center gap-2.5">
+                  <i class="fa-solid fa-envelope text-brass-400 text-xs shrink-0"></i>
+                  <a href="mailto:hello@zenningspa.com" class="hover:text-umber-900 transition-colors">hello@zenningspa.com</a>
+                </p>
+              </div>
+            </div>
+
+            <a href="https://maps.google.com/?q=Ampang+Park+LRT+Kuala+Lumpur" target="_blank"
+               class="block rounded-2xl overflow-hidden h-40 relative group" style="background:linear-gradient(135deg,#2D1B0E,#3A5232);">
+              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/55">
+                <i class="fa-solid fa-map-location-dot text-3xl text-brass-400/65"></i>
+                <p class="text-xs font-body group-hover:text-white/80 transition-colors">点击前往 Google 地图</p>
+              </div>
+              <div class="absolute inset-0 group-hover:bg-white/5 transition-colors"></div>
+            </a>
+          </div>
+
+          <!-- Right form -->
+          <div class="bg-sand-50 border border-brass-300/30 rounded-2xl p-7 reveal" style="transition-delay:.15s">
+            <h3 class="font-display text-xl font-semibold text-umber-900 mb-6">在线预约留言</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[.72rem] text-taupe-600 font-body mb-1.5">姓名 <span class="text-red-400">*</span></label>
+                  <input id="f-name" type="text" placeholder="您的姓名" class="f-input">
+                </div>
+                <div>
+                  <label class="block text-[.72rem] text-taupe-600 font-body mb-1.5">电话 <span class="text-red-400">*</span></label>
+                  <input id="f-phone" type="tel" placeholder="+60 1X-XXX XXXX" class="f-input">
+                </div>
+              </div>
+              <div>
+                <label class="block text-[.72rem] text-taupe-600 font-body mb-1.5">服务项目 <span class="text-red-400">*</span></label>
+                <select id="f-service" class="f-input">
+                  <option value="" disabled selected>请选择服务</option>
+                  <option>泰式古法按摩 (60 / 90 / 120 分)</option>
+                  <option>精油芳香 SPA (60 / 90 / 120 分)</option>
+                  <option>足底反射理疗 (45 / 60 / 90 分)</option>
+                  <option>热石按摩疗法</option>
+                  <option>情侣套餐</option>
+                  <option>其他（请在留言说明）</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[.72rem] text-taupe-600 font-body mb-1.5">预约日期 <span class="text-red-400">*</span></label>
+                  <input id="f-date" type="date" class="f-input">
+                </div>
+                <div>
+                  <label class="block text-[.72rem] text-taupe-600 font-body mb-1.5">人数</label>
+                  <select id="f-persons" class="f-input">
+                    <option>1 人</option>
+                    <option>2 人</option>
+                    <option>3 人</option>
+                    <option>4+ 人</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-[.72rem] text-taupe-600 font-body mb-1.5">留言 / 特殊需求</label>
+                <textarea id="f-notes" rows="3" placeholder="如有特别要求（力度偏好、身体状况等），请在此说明…" class="f-input resize-none"></textarea>
+              </div>
+              <!-- Validation error message (hidden by default) -->
+              <p id="f-error" class="hidden text-xs text-red-500 font-body flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span id="f-error-msg">请填写所有必填项目</span>
+              </p>
+              <button id="submit-btn" onclick="handleSubmit(this)"
+                class="w-full bg-sage-500 hover:bg-sage-600 text-white font-body text-sm py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-base"></i>WhatsApp 发送预约
+              </button>
+              <p class="text-[.68rem] text-taupe-400 font-body text-center">
+                点击后将自动打开 WhatsApp，预约内容已替您填好
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div><!-- /page-contact -->
+
+</div><!-- /#app -->
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="bg-umber-900 py-9 px-5">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+    <div class="text-center md:text-left">
+      <p class="font-display text-xl text-white/90">禅宁 <span class="text-brass-400">SPA</span></p>
+      <p class="text-white/35 text-[.68rem] font-body mt-1 tracking-widest">ZEN NING WELLNESS · KUALA LUMPUR</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+        <i class="fa-brands fa-instagram text-white/65 text-sm"></i>
+      </a>
+      <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+        <i class="fa-brands fa-facebook-f text-white/65 text-sm"></i>
+      </a>
+      <a href="https://wa.me/60123456789" target="_blank" aria-label="WhatsApp"
+         class="w-9 h-9 rounded-full bg-sage-500/30 hover:bg-sage-500/50 flex items-center justify-center transition-colors">
+        <i class="fa-brands fa-whatsapp text-white/75 text-sm"></i>
+      </a>
+    </div>
+    <p class="text-white/25 text-[.68rem] font-body">© 2026 禅宁 SPA · All rights reserved.</p>
+  </div>
+</footer>
+
+
+<!-- ═══════════ MOBILE FLOATING BAR ═══════════ -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 mob-bar">
+  <div class="grid grid-cols-2 shadow-2xl">
+    <a href="https://wa.me/60123456789?text=您好，我想预约按摩服务" target="_blank"
+       class="flex items-center justify-center gap-2.5 bg-sage-500 hover:bg-sage-600 text-white font-body text-sm py-4 transition-colors">
+      <i class="fa-brands fa-whatsapp text-lg"></i>
+      <span class="font-medium">WhatsApp 预约</span>
+    </a>
+    <a href="https://maps.google.com/?q=Ampang+Park+LRT+Kuala+Lumpur" target="_blank"
+       class="flex items-center justify-center gap-2.5 bg-umber-900 hover:bg-umber-800 text-white font-body text-sm py-4 transition-colors">
+      <i class="fa-solid fa-map-location-dot text-brass-400"></i>
+      <span class="font-medium">Google 导航</span>
+    </a>
+  </div>
+</div>
+<div class="md:hidden h-16 bg-umber-900"></div>
+
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+  // ── Mobile menu ──────────────────────────
+  document.getElementById('ham-btn').addEventListener('click', () => {
+    document.getElementById('mob-menu').classList.toggle('open');
+  });
+  function closeMob() { document.getElementById('mob-menu').classList.remove('open'); }
+
+  // ── SPA Router ───────────────────────────
+  const PAGES = ['home','services','facilities','reviews','contact'];
+
+  function nav(pageId) {
+    // Guard
+    if (!PAGES.includes(pageId)) pageId = 'home';
+
+    // Hide all, deactivate
+    PAGES.forEach(id => {
+      const el = document.getElementById('page-' + id);
+      if (el) el.classList.remove('active');
+    });
+
+    // Show target
+    const target = document.getElementById('page-' + pageId);
+    if (target) {
+      target.classList.add('active');
+      // Reset & trigger reveals
+      triggerReveals(target);
+    }
+
+    // Update nav active states
+    document.querySelectorAll('[data-nav]').forEach(link => {
+      const isActive = link.dataset.nav === pageId;
+      link.classList.toggle('nav-active', isActive);
+    });
+
+    // Scroll top
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // Update hash without pushing to history (silent update)
+    history.replaceState(null, '', pageId === 'home' ? '#home' : '#' + pageId);
+  }
+
+  function triggerReveals(container) {
+    if (!container) return;
+    // Reset
+    container.querySelectorAll('.reveal').forEach(el => {
+      el.classList.remove('in');
+    });
+    // Add `in` respecting each element's existing transition-delay
+    setTimeout(() => {
+      container.querySelectorAll('.reveal').forEach(el => {
+        const delay = parseFloat(el.style.transitionDelay || '0') * 1000;
+        setTimeout(() => el.classList.add('in'), delay);
+      });
+    }, 80);
+  }
+
+  // ── Init on load ─────────────────────────
+  window.addEventListener('load', () => {
+    const hash = location.hash.replace('#', '') || 'home';
+    nav(PAGES.includes(hash) ? hash : 'home');
+  });
+
+  // ── Handle browser back/forward ──────────
+  window.addEventListener('popstate', () => {
+    const hash = location.hash.replace('#', '') || 'home';
+    nav(PAGES.includes(hash) ? hash : 'home');
+  });
+
+  // ── Booking form → WhatsApp ───────────────
+  function handleSubmit(btn) {
+    const name    = document.getElementById('f-name').value.trim();
+    const phone   = document.getElementById('f-phone').value.trim();
+    const service = document.getElementById('f-service').value;
+    const date    = document.getElementById('f-date').value;
+    const persons = document.getElementById('f-persons').value;
+    const notes   = document.getElementById('f-notes').value.trim();
+
+    const errBox = document.getElementById('f-error');
+    const errMsg = document.getElementById('f-error-msg');
+
+    // Helper: highlight a field red if empty
+    function markField(id, bad) {
+      const el = document.getElementById(id);
+      if (bad) {
+        el.style.borderColor = '#ef4444';
+      } else {
+        el.style.borderColor = '';
+      }
+    }
+
+    // Validate required fields
+    const missing = [];
+    markField('f-name',    !name);    if (!name)    missing.push('姓名');
+    markField('f-phone',   !phone);   if (!phone)   missing.push('电话');
+    markField('f-service', !service); if (!service) missing.push('服务项目');
+    markField('f-date',    !date);    if (!date)    missing.push('预约日期');
+
+    if (missing.length > 0) {
+      errMsg.textContent = '请填写必填项：' + missing.join('、');
+      errBox.classList.remove('hidden');
+      errBox.classList.add('flex');
+      return;
+    }
+
+    // All good — hide error
+    errBox.classList.add('hidden');
+    errBox.classList.remove('flex');
+
+    // Format date to Chinese-friendly string (YYYY-MM-DD → YYYY年MM月DD日)
+    const [y, m, d] = date.split('-');
+    const dateStr = `${y}年${m}月${d}日`;
+
+    // Build the WhatsApp message
+    const lines = [
+      '您好！我想透过网站预约按摩服务 🌿',
+      '',
+      `👤 姓名：${name}`,
+      `📞 联络电话：${phone}`,
+      `💆 服务项目：${service}`,
+      `📅 预约日期：${dateStr}`,
+      `👥 人数：${persons}`,
+    ];
+    if (notes) lines.push(`📝 备注：${notes}`);
+    lines.push('', '请确认预约，谢谢！🙏');
+
+    const message = lines.join('\n');
+    const waNumber = '60123456789'; // ← 替换为您的 WhatsApp 号码
+    const waURL = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(message);
+
+    // Visual feedback on button
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i>正在开启 WhatsApp…';
+    btn.classList.replace('bg-sage-500', 'bg-green-700');
+    btn.classList.replace('hover:bg-sage-600', 'hover:bg-green-700');
+
+    // Open WhatsApp
+    window.open(waURL, '_blank');
+
+    // Reset button after delay
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-brands fa-whatsapp text-base mr-2"></i>WhatsApp 发送预约';
+      btn.classList.replace('bg-green-700', 'bg-sage-500');
+      btn.classList.replace('hover:bg-green-700', 'hover:bg-sage-600');
+    }, 3500);
+  }
+
+  // Clear red border on input focus
+  ['f-name','f-phone','f-service','f-date'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => { el.style.borderColor = ''; });
+    if (el) el.addEventListener('change', () => { el.style.borderColor = ''; });
+  });
+</script>
+
+</body>
+</html>
