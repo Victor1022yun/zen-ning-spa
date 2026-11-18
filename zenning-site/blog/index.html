@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>养生博客 Wellness Blog | 禅宁 SPA Zen Ning Wellness</title>
+<meta name="description" content="养生知识、按摩技巧、身心健康小贴士，每周更新。Wellness insights, massage tips and self-care guides — updated weekly.">
+<link rel="canonical" href="https://zenning-site.vercel.app/blog">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="禅宁 SPA Zen Ning Wellness">
+<meta property="og:title" content="养生博客 Wellness Blog | 禅宁 SPA Zen Ning Wellness">
+<meta property="og:description" content="养生知识、按摩技巧、身心健康小贴士，每周更新。Wellness insights, massage tips and self-care guides — updated weekly.">
+<meta property="og:url" content="https://zenning-site.vercel.app/blog">
+<meta property="og:image" content="https://zenning-site.vercel.app/assets/hero.jpg">
+<meta property="og:locale" content="en_MY">
+<meta property="og:locale:alternate" content="zh_MY">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+
+</head>
+<body>
+
+<header id="site-header" class="sticky z-50 scales-bg border-b border-brass-300/40 shadow-sm">
+  <nav class="max-w-[2200px] mx-auto px-5 md:px-8 xl:px-12 py-3 flex items-center justify-between">
+
+    <!-- Logo → home -->
+    <a href="/" class="flex items-center gap-2.5" data-nav="home">
+      <div class="w-9 h-9 rounded-full bg-sage-500 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-spa text-sand-50 text-sm"></i>
+      </div>
+      <div class="leading-none">
+        <span class="font-display text-[1.2rem] font-semibold text-white tracking-tight">禅宁 <span class="text-brass-300">SPA</span></span>
+        <p class="text-[.65rem] text-white/55 font-body tracking-widest mt-px">ZEN NING WELLNESS</p>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8 font-body text-white/85 ml-auto mr-8 xl:mr-10">
+      <a href="/services"  class="nav-link" data-nav="services"><span class="txt-zh">服务项目</span><span class="txt-en">Services</span></a>
+      <a href="/blog"      class="nav-link nav-active" data-nav="blog"><span class="txt-zh">养生博客</span><span class="txt-en">Blog</span></a>
+    </div>
+
+    <!-- Desktop CTA + hamburger -->
+    <div class="flex items-center gap-3">
+      <button id="lang-toggle" onclick="toggleLang()"
+        class="hidden md:inline-flex items-center gap-1.5 border border-brass-400/40 hover:bg-white/10 text-white/85 font-body text-xs px-3 py-1.5 rounded-full transition-colors">
+        <i class="fa-solid fa-globe text-[.6rem]"></i>
+        <span id="lang-label">中文</span>
+      </button>
+      <button id="ham-btn" class="md:hidden p-2 text-white/85" aria-label="Menu">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Location bar: swipe row on mobile, wrapped rows on desktop -->
+  <div class="loc-wrap border-t border-brass-300/20">
+    <div id="loc-strip" class="loc-strip max-w-[2200px] mx-auto" aria-label="Locations">
+      <div class="loc-row">
+      <a href="/" class="loc-link" data-nav="home"><span class="txt-zh">首页</span><span class="txt-en">Home</span></a>
+      <a href="/ampang" class="loc-link" data-loc="ampang" data-region="kl"><span class="txt-zh">安邦</span><span class="txt-en">Ampang</span></a>
+      <a href="/cheras" class="loc-link" data-loc="cheras" data-region="kl"><span class="txt-zh">蕉赖</span><span class="txt-en">Cheras</span></a>
+      <a href="/cyberjaya" class="loc-link" data-loc="cyberjaya" data-region="selangor"><span class="txt-zh">赛城</span><span class="txt-en">Cyberjaya</span></a>
+      <a href="/genting" class="loc-link" data-loc="genting" data-region="east"><span class="txt-zh">云顶</span><span class="txt-en">Genting</span></a>
+      <a href="/ipoh" class="loc-link" data-loc="ipoh" data-region="north"><span class="txt-zh">怡保</span><span class="txt-en">Ipoh</span></a>
+      <a href="/johor" class="loc-link" data-loc="johor" data-region="south"><span class="txt-zh">柔佛</span><span class="txt-en">Johor</span></a>
+      <a href="/kepong" class="loc-link" data-loc="kepong" data-region="kl"><span class="txt-zh">甲洞</span><span class="txt-en">Kepong</span></a>
+      <a href="/klang" class="loc-link" data-loc="klang" data-region="selangor"><span class="txt-zh">巴生</span><span class="txt-en">Klang</span></a>
+      <a href="/kota-damansara" class="loc-link" data-loc="kota-damansara" data-region="selangor"><span class="txt-zh">哥打白沙罗</span><span class="txt-en">Kota Damansara</span></a>
+      <a href="/kuala-lumpur" class="loc-link" data-loc="kuala-lumpur" data-region="kl"><span class="txt-zh">吉隆坡</span><span class="txt-en">Kuala Lumpur</span></a>
+      <a href="/langkawi" class="loc-link" data-loc="langkawi" data-region="north"><span class="txt-zh">浮罗交怡</span><span class="txt-en">Langkawi</span></a>
+      <a href="/melaka" class="loc-link" data-loc="melaka" data-region="south"><span class="txt-zh">马六甲</span><span class="txt-en">Melaka</span></a>
+      <a href="/mont-kiara" class="loc-link" data-loc="mont-kiara" data-region="kl"><span class="txt-zh">满家乐</span><span class="txt-en">Mont Kiara</span></a>
+      </div>
+      <span class="loc-break" aria-hidden="true"></span>
+      <div class="loc-row">
+      <a href="/pahang" class="loc-link" data-loc="pahang" data-region="east"><span class="txt-zh">彭亨</span><span class="txt-en">Pahang</span></a>
+      <a href="/penang" class="loc-link" data-loc="penang" data-region="north"><span class="txt-zh">槟城</span><span class="txt-en">Penang</span></a>
+      <a href="/petaling-jaya" class="loc-link" data-loc="petaling-jaya" data-region="selangor"><span class="txt-zh">八打灵再也</span><span class="txt-en">Petaling Jaya</span></a>
+      <a href="/port-dickson" class="loc-link" data-loc="port-dickson" data-region="south"><span class="txt-zh">波德申</span><span class="txt-en">Port Dickson</span></a>
+      <a href="/puchong" class="loc-link" data-loc="puchong" data-region="selangor"><span class="txt-zh">蒲种</span><span class="txt-en">Puchong</span></a>
+      <a href="/sabah" class="loc-link" data-loc="sabah" data-region="east"><span class="txt-zh">沙巴</span><span class="txt-en">Sabah</span></a>
+      <a href="/sarawak" class="loc-link" data-loc="sarawak" data-region="east"><span class="txt-zh">砂拉越</span><span class="txt-en">Sarawak</span></a>
+      <a href="/serdang" class="loc-link" data-loc="serdang" data-region="selangor"><span class="txt-zh">沙登</span><span class="txt-en">Serdang</span></a>
+      <a href="/seremban" class="loc-link" data-loc="seremban" data-region="south"><span class="txt-zh">芙蓉</span><span class="txt-en">Seremban</span></a>
+      <a href="/setia-alam" class="loc-link" data-loc="setia-alam" data-region="selangor"><span class="txt-zh">实达阿南</span><span class="txt-en">Setia Alam</span></a>
+      <a href="/sri-petaling" class="loc-link" data-loc="sri-petaling" data-region="kl"><span class="txt-zh">大城堡</span><span class="txt-en">Sri Petaling</span></a>
+      <a href="/subang" class="loc-link" data-loc="subang" data-region="selangor"><span class="txt-zh">梳邦</span><span class="txt-en">Subang</span></a>
+      <a href="/taiping" class="loc-link" data-loc="taiping" data-region="north"><span class="txt-zh">太平</span><span class="txt-en">Taiping</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mob-menu" class="md:hidden scales-bg border-t border-brass-300/25 px-5 pb-5 pt-4">
+    <div class="grid grid-cols-2 gap-2.5">
+      <a href="/services" class="mob-nav-link flex items-center justify-center gap-2 font-body text-sm text-white/85 py-2.5 rounded-lg border border-brass-300/25" data-nav="services"><i class="fa-solid fa-spa text-brass-300 text-xs"></i><span class="txt-zh">服务项目</span><span class="txt-en">Services</span></a>
+      <a href="/blog"     class="mob-nav-link flex items-center justify-center gap-2 font-body text-sm text-white/85 py-2.5 rounded-lg border border-brass-300/25" data-nav="blog"><i class="fa-solid fa-newspaper text-brass-300 text-xs"></i><span class="txt-zh">养生博客</span><span class="txt-en">Blog</span></a>
+    </div>
+    <p class="font-display text-[.62rem] tracking-[.18em] text-brass-300/80 uppercase mt-5 mb-2.5"><span class="txt-zh">全部地点</span><span class="txt-en">All Locations</span></p>
+    <div class="grid grid-cols-3 gap-1.5">
+      <a href="/ampang" class="loc-link loc-cell" data-loc="ampang" data-region="kl"><span class="txt-zh">安邦</span><span class="txt-en">Ampang</span></a>
+      <a href="/cheras" class="loc-link loc-cell" data-loc="cheras" data-region="kl"><span class="txt-zh">蕉赖</span><span class="txt-en">Cheras</span></a>
+      <a href="/cyberjaya" class="loc-link loc-cell" data-loc="cyberjaya" data-region="selangor"><span class="txt-zh">赛城</span><span class="txt-en">Cyberjaya</span></a>
+      <a href="/genting" class="loc-link loc-cell" data-loc="genting" data-region="east"><span class="txt-zh">云顶</span><span class="txt-en">Genting</span></a>
+      <a href="/ipoh" class="loc-link loc-cell" data-loc="ipoh" data-region="north"><span class="txt-zh">怡保</span><span class="txt-en">Ipoh</span></a>
+      <a href="/johor" class="loc-link loc-cell" data-loc="johor" data-region="south"><span class="txt-zh">柔佛</span><span class="txt-en">Johor</span></a>
+      <a href="/kepong" class="loc-link loc-cell" data-loc="kepong" data-region="kl"><span class="txt-zh">甲洞</span><span class="txt-en">Kepong</span></a>
+      <a href="/klang" class="loc-link loc-cell" data-loc="klang" data-region="selangor"><span class="txt-zh">巴生</span><span class="txt-en">Klang</span></a>
+      <a href="/kota-damansara" class="loc-link loc-cell" data-loc="kota-damansara" data-region="selangor"><span class="txt-zh">哥打白沙罗</span><span class="txt-en">Kota Damansara</span></a>
+      <a href="/kuala-lumpur" class="loc-link loc-cell" data-loc="kuala-lumpur" data-region="kl"><span class="txt-zh">吉隆坡</span><span class="txt-en">Kuala Lumpur</span></a>
+      <a href="/langkawi" class="loc-link loc-cell" data-loc="langkawi" data-region="north"><span class="txt-zh">浮罗交怡</span><span class="txt-en">Langkawi</span></a>
+      <a href="/melaka" class="loc-link loc-cell" data-loc="melaka" data-region="south"><span class="txt-zh">马六甲</span><span class="txt-en">Melaka</span></a>
+      <a href="/mont-kiara" class="loc-link loc-cell" data-loc="mont-kiara" data-region="kl"><span class="txt-zh">满家乐</span><span class="txt-en">Mont Kiara</span></a>
+      <a href="/pahang" class="loc-link loc-cell" data-loc="pahang" data-region="east"><span class="txt-zh">彭亨</span><span class="txt-en">Pahang</span></a>
+      <a href="/penang" class="loc-link loc-cell" data-loc="penang" data-region="north"><span class="txt-zh">槟城</span><span class="txt-en">Penang</span></a>
+      <a href="/petaling-jaya" class="loc-link loc-cell" data-loc="petaling-jaya" data-region="selangor"><span class="txt-zh">八打灵再也</span><span class="txt-en">Petaling Jaya</span></a>
+      <a href="/port-dickson" class="loc-link loc-cell" data-loc="port-dickson" data-region="south"><span class="txt-zh">波德申</span><span class="txt-en">Port Dickson</span></a>
+      <a href="/puchong" class="loc-link loc-cell" data-loc="puchong" data-region="selangor"><span class="txt-zh">蒲种</span><span class="txt-en">Puchong</span></a>
+      <a href="/sabah" class="loc-link loc-cell" data-loc="sabah" data-region="east"><span class="txt-zh">沙巴</span><span class="txt-en">Sabah</span></a>
+      <a href="/sarawak" class="loc-link loc-cell" data-loc="sarawak" data-region="east"><span class="txt-zh">砂拉越</span><span class="txt-en">Sarawak</span></a>
+      <a href="/serdang" class="loc-link loc-cell" data-loc="serdang" data-region="selangor"><span class="txt-zh">沙登</span><span class="txt-en">Serdang</span></a>
+      <a href="/seremban" class="loc-link loc-cell" data-loc="seremban" data-region="south"><span class="txt-zh">芙蓉</span><span class="txt-en">Seremban</span></a>
+      <a href="/setia-alam" class="loc-link loc-cell" data-loc="setia-alam" data-region="selangor"><span class="txt-zh">实达阿南</span><span class="txt-en">Setia Alam</span></a>
+      <a href="/sri-petaling" class="loc-link loc-cell" data-loc="sri-petaling" data-region="kl"><span class="txt-zh">大城堡</span><span class="txt-en">Sri Petaling</span></a>
+      <a href="/subang" class="loc-link loc-cell" data-loc="subang" data-region="selangor"><span class="txt-zh">梳邦</span><span class="txt-en">Subang</span></a>
+      <a href="/taiping" class="loc-link loc-cell" data-loc="taiping" data-region="north"><span class="txt-zh">太平</span><span class="txt-en">Taiping</span></a>
+    </div>
+    <div class="flex items-center justify-between pt-4 border-t border-brass-300/20 mt-5">
+      <span class="font-body text-xs text-white/55">Language / 语言</span>
+      <button onclick="toggleLang()" class="inline-flex items-center gap-1.5 border border-brass-400/35 font-body text-xs px-3 py-1.5 rounded-full text-white/85">
+        <i class="fa-solid fa-globe text-[.6rem]"></i>
+        <span id="lang-label-mob">中文</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div id="page-blog" class="page active">
+
+  <!-- Hero -->
+  <section class="relative min-h-[38vh] flex items-end pb-14 pt-32 px-5 overflow-hidden scales-bg">
+    <div class="absolute inset-0 bg-gradient-to-b from-umber-900/60 to-umber-900/10 pointer-events-none"></div>
+    <div class="relative max-w-3xl mx-auto w-full reveal">
+      <p class="font-display text-[.65rem] tracking-[.22em] text-brass-300 uppercase mb-3">Zen Ning Wellness</p>
+      <h1 class="font-display text-4xl md:text-5xl font-semibold text-white leading-tight">
+        <span class="txt-zh">养生博客</span><span class="txt-en">Wellness Blog</span>
+      </h1>
+      <p class="mt-4 font-body text-white/65 text-base max-w-xl">
+        <span class="txt-zh">养生知识、按摩技巧、身心健康小贴士，每周更新。</span>
+        <span class="txt-en">Wellness insights, massage tips and self-care guides — updated weekly.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Coming-soon placeholder -->
+  <section class="max-w-3xl mx-auto px-5 py-20 text-center reveal">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sage-500/20 mb-6">
+      <i class="fa-solid fa-newspaper text-sage-400 text-2xl"></i>
+    </div>
+    <h2 class="font-display text-2xl text-white mb-3">
+      <span class="txt-zh">内容即将上线</span><span class="txt-en">Coming Soon</span>
+    </h2>
+    <p class="font-body text-white/60 text-sm max-w-sm mx-auto">
+      <span class="txt-zh">我们正在准备第一批养生文章，敬请期待。</span>
+      <span class="txt-en">Our first articles are on the way. Check back soon.</span>
+    </p>
+    <a href="https://t.me/ZenNingSPA" target="_blank" rel="noopener"
+       class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sage-500 hover:bg-sage-600 text-white font-body text-sm transition-colors">
+      <i class="fa-brands fa-telegram"></i>
+      <span class="txt-zh">关注我们的 Telegram</span><span class="txt-en">Follow us on Telegram</span>
+    </a>
+  </section>
+
+</div><!-- /page-blog -->
+</main>
+
+<footer class="bg-umber-900 py-9 px-5">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+    <div class="text-center md:text-left">
+      <p class="font-display text-xl text-white/90">禅宁 <span class="text-brass-400">SPA</span></p>
+      <p class="text-white/35 text-[.68rem] font-body mt-1 tracking-widest">ZEN NING WELLNESS · KUALA LUMPUR</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3 items-center">
+      <a href="https://t.me/ZenNingSPA" target="_blank"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sage-500/30 hover:bg-sage-500/60 text-white/85 hover:text-white text-sm font-body transition-colors">
+        <i class="fa-brands fa-telegram text-base"></i>
+        <span class="txt-zh">联系我们 · Telegram</span>
+        <span class="txt-en">Contact via Telegram</span>
+      </a>
+      <a href="/blog"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white/85 hover:text-white text-sm font-body transition-colors">
+        <i class="fa-solid fa-newspaper text-base"></i>
+        <span class="txt-zh">养生博客</span>
+        <span class="txt-en">Wellness Blog</span>
+      </a>
+    </div>
+    <p class="text-white/25 text-[.68rem] font-body">© 2026 禅宁 SPA · All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ═══════════ TELEGRAM FLOATING BUTTON ═══════════ -->
+<a id="tg-fab"
+   href="https://t.me/ZenNingSPA" target="_blank" rel="noopener"
+   aria-label="联系我们 Telegram"
+   style="position:fixed;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));right:1.25rem;z-index:50;display:flex;align-items:center;justify-content:center;width:3.5rem;height:3.5rem;border-radius:9999px;background:#27AEDC;text-decoration:none;transition:transform .15s,background .2s;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+</a>
+
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>

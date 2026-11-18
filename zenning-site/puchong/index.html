@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>蒲种按摩 SPA · Massage in Puchong | 禅宁 SPA Zen Ning Wellness</title>
+<meta name="description" content="禅宁 SPA 蒲种分店（雪兰莪）— 7 位持证理疗师，提供泰式古法、精油芳疗、足底反射与热石按摩。明码标价，当天可约，Telegram 直接预约。Certified massage and spa therapists in Puchong, Selangor.">
+<link rel="canonical" href="https://zenning-site.vercel.app/puchong">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="禅宁 SPA Zen Ning Wellness">
+<meta property="og:title" content="蒲种按摩 SPA · Massage in Puchong | 禅宁 SPA Zen Ning Wellness">
+<meta property="og:description" content="禅宁 SPA 蒲种分店（雪兰莪）— 7 位持证理疗师，提供泰式古法、精油芳疗、足底反射与热石按摩。明码标价，当天可约，Telegram 直接预约。Certified massage and spa therapists in Puchong, Selangor.">
+<meta property="og:url" content="https://zenning-site.vercel.app/puchong">
+<meta property="og:image" content="https://zenning-site.vercel.app/assets/hero.jpg">
+<meta property="og:locale" content="en_MY">
+<meta property="og:locale:alternate" content="zh_MY">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DaySpa",
+  "name": "禅宁 SPA Zen Ning Wellness — Puchong",
+  "url": "https://zenning-site.vercel.app/puchong",
+  "image": "https://zenning-site.vercel.app/assets/hero.jpg",
+  "description": "Certified massage and spa therapists in Puchong, Selangor. Traditional Thai, aromatherapy oil, reflexology and hot stone treatments.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Puchong",
+    "addressRegion": "Selangor",
+    "addressCountry": "MY"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Puchong, Selangor, Malaysia"
+  },
+  "priceRange": "RM",
+  "currenciesAccepted": "MYR",
+  "employee": {
+    "@type": "QuantitativeValue",
+    "value": 7,
+    "unitText": "certified therapists"
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Traditional Thai Massage"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Aromatherapy Oil SPA"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Reflexology Foot Therapy"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Hot Stone Massage"
+      }
+    }
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "禅宁 SPA Zen Ning Wellness",
+    "url": "https://zenning-site.vercel.app"
+  },
+  "sameAs": [
+    "https://t.me/ZenNingSPA"
+  ]
+}
+</script>
+</head>
+<body>
+
+<header id="site-header" class="sticky z-50 scales-bg border-b border-brass-300/40 shadow-sm">
+  <nav class="max-w-[2200px] mx-auto px-5 md:px-8 xl:px-12 py-3 flex items-center justify-between">
+
+    <!-- Logo → home -->
+    <a href="/" class="flex items-center gap-2.5" data-nav="home">
+      <div class="w-9 h-9 rounded-full bg-sage-500 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-spa text-sand-50 text-sm"></i>
+      </div>
+      <div class="leading-none">
+        <span class="font-display text-[1.2rem] font-semibold text-white tracking-tight">禅宁 <span class="text-brass-300">SPA</span></span>
+        <p class="text-[.65rem] text-white/55 font-body tracking-widest mt-px">ZEN NING WELLNESS</p>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8 font-body text-white/85 ml-auto mr-8 xl:mr-10">
+      <a href="/services"  class="nav-link" data-nav="services"><span class="txt-zh">服务项目</span><span class="txt-en">Services</span></a>
+      <a href="/blog"      class="nav-link" data-nav="blog"><span class="txt-zh">养生博客</span><span class="txt-en">Blog</span></a>
+    </div>
+
+    <!-- Desktop CTA + hamburger -->
+    <div class="flex items-center gap-3">
+      <button id="lang-toggle" onclick="toggleLang()"
+        class="hidden md:inline-flex items-center gap-1.5 border border-brass-400/40 hover:bg-white/10 text-white/85 font-body text-xs px-3 py-1.5 rounded-full transition-colors">
+        <i class="fa-solid fa-globe text-[.6rem]"></i>
+        <span id="lang-label">中文</span>
+      </button>
+      <button id="ham-btn" class="md:hidden p-2 text-white/85" aria-label="Menu">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Location bar: swipe row on mobile, wrapped rows on desktop -->
+  <div class="loc-wrap border-t border-brass-300/20">
+    <div id="loc-strip" class="loc-strip max-w-[2200px] mx-auto" aria-label="Locations">
+      <div class="loc-row">
+      <a href="/" class="loc-link" data-nav="home"><span class="txt-zh">首页</span><span class="txt-en">Home</span></a>
+      <a href="/ampang" class="loc-link" data-loc="ampang" data-region="kl"><span class="txt-zh">安邦</span><span class="txt-en">Ampang</span></a>
+      <a href="/cheras" class="loc-link" data-loc="cheras" data-region="kl"><span class="txt-zh">蕉赖</span><span class="txt-en">Cheras</span></a>
+      <a href="/cyberjaya" class="loc-link" data-loc="cyberjaya" data-region="selangor"><span class="txt-zh">赛城</span><span class="txt-en">Cyberjaya</span></a>
+      <a href="/genting" class="loc-link" data-loc="genting" data-region="east"><span class="txt-zh">云顶</span><span class="txt-en">Genting</span></a>
+      <a href="/ipoh" class="loc-link" data-loc="ipoh" data-region="north"><span class="txt-zh">怡保</span><span class="txt-en">Ipoh</span></a>
+      <a href="/johor" class="loc-link" data-loc="johor" data-region="south"><span class="txt-zh">柔佛</span><span class="txt-en">Johor</span></a>
+      <a href="/kepong" class="loc-link" data-loc="kepong" data-region="kl"><span class="txt-zh">甲洞</span><span class="txt-en">Kepong</span></a>
+      <a href="/klang" class="loc-link" data-loc="klang" data-region="selangor"><span class="txt-zh">巴生</span><span class="txt-en">Klang</span></a>
+      <a href="/kota-damansara" class="loc-link" data-loc="kota-damansara" data-region="selangor"><span class="txt-zh">哥打白沙罗</span><span class="txt-en">Kota Damansara</span></a>
+      <a href="/kuala-lumpur" class="loc-link" data-loc="kuala-lumpur" data-region="kl"><span class="txt-zh">吉隆坡</span><span class="txt-en">Kuala Lumpur</span></a>
+      <a href="/langkawi" class="loc-link" data-loc="langkawi" data-region="north"><span class="txt-zh">浮罗交怡</span><span class="txt-en">Langkawi</span></a>
+      <a href="/melaka" class="loc-link" data-loc="melaka" data-region="south"><span class="txt-zh">马六甲</span><span class="txt-en">Melaka</span></a>
+      <a href="/mont-kiara" class="loc-link" data-loc="mont-kiara" data-region="kl"><span class="txt-zh">满家乐</span><span class="txt-en">Mont Kiara</span></a>
+      </div>
+      <span class="loc-break" aria-hidden="true"></span>
+      <div class="loc-row">
+      <a href="/pahang" class="loc-link" data-loc="pahang" data-region="east"><span class="txt-zh">彭亨</span><span class="txt-en">Pahang</span></a>
+      <a href="/penang" class="loc-link" data-loc="penang" data-region="north"><span class="txt-zh">槟城</span><span class="txt-en">Penang</span></a>
+      <a href="/petaling-jaya" class="loc-link" data-loc="petaling-jaya" data-region="selangor"><span class="txt-zh">八打灵再也</span><span class="txt-en">Petaling Jaya</span></a>
+      <a href="/port-dickson" class="loc-link" data-loc="port-dickson" data-region="south"><span class="txt-zh">波德申</span><span class="txt-en">Port Dickson</span></a>
+      <a href="/puchong" class="loc-link loc-active" data-loc="puchong" data-region="selangor"><span class="txt-zh">蒲种</span><span class="txt-en">Puchong</span></a>
+      <a href="/sabah" class="loc-link" data-loc="sabah" data-region="east"><span class="txt-zh">沙巴</span><span class="txt-en">Sabah</span></a>
+      <a href="/sarawak" class="loc-link" data-loc="sarawak" data-region="east"><span class="txt-zh">砂拉越</span><span class="txt-en">Sarawak</span></a>
+      <a href="/serdang" class="loc-link" data-loc="serdang" data-region="selangor"><span class="txt-zh">沙登</span><span class="txt-en">Serdang</span></a>
+      <a href="/seremban" class="loc-link" data-loc="seremban" data-region="south"><span class="txt-zh">芙蓉</span><span class="txt-en">Seremban</span></a>
+      <a href="/setia-alam" class="loc-link" data-loc="setia-alam" data-region="selangor"><span class="txt-zh">实达阿南</span><span class="txt-en">Setia Alam</span></a>
+      <a href="/sri-petaling" class="loc-link" data-loc="sri-petaling" data-region="kl"><span class="txt-zh">大城堡</span><span class="txt-en">Sri Petaling</span></a>
+      <a href="/subang" class="loc-link" data-loc="subang" data-region="selangor"><span class="txt-zh">梳邦</span><span class="txt-en">Subang</span></a>
+      <a href="/taiping" class="loc-link" data-loc="taiping" data-region="north"><span class="txt-zh">太平</span><span class="txt-en">Taiping</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mob-menu" class="md:hidden scales-bg border-t border-brass-300/25 px-5 pb-5 pt-4">
+    <div class="grid grid-cols-2 gap-2.5">
+      <a href="/services" class="mob-nav-link flex items-center justify-center gap-2 font-body text-sm text-white/85 py-2.5 rounded-lg border border-brass-300/25" data-nav="services"><i class="fa-solid fa-spa text-brass-300 text-xs"></i><span class="txt-zh">服务项目</span><span class="txt-en">Services</span></a>
+      <a href="/blog"     class="mob-nav-link flex items-center justify-center gap-2 font-body text-sm text-white/85 py-2.5 rounded-lg border border-brass-300/25" data-nav="blog"><i class="fa-solid fa-newspaper text-brass-300 text-xs"></i><span class="txt-zh">养生博客</span><span class="txt-en">Blog</span></a>
+    </div>
+    <p class="font-display text-[.62rem] tracking-[.18em] text-brass-300/80 uppercase mt-5 mb-2.5"><span class="txt-zh">全部地点</span><span class="txt-en">All Locations</span></p>
+    <div class="grid grid-cols-3 gap-1.5">
+      <a href="/ampang" class="loc-link loc-cell" data-loc="ampang" data-region="kl"><span class="txt-zh">安邦</span><span class="txt-en">Ampang</span></a>
+      <a href="/cheras" class="loc-link loc-cell" data-loc="cheras" data-region="kl"><span class="txt-zh">蕉赖</span><span class="txt-en">Cheras</span></a>
+      <a href="/cyberjaya" class="loc-link loc-cell" data-loc="cyberjaya" data-region="selangor"><span class="txt-zh">赛城</span><span class="txt-en">Cyberjaya</span></a>
+      <a href="/genting" class="loc-link loc-cell" data-loc="genting" data-region="east"><span class="txt-zh">云顶</span><span class="txt-en">Genting</span></a>
+      <a href="/ipoh" class="loc-link loc-cell" data-loc="ipoh" data-region="north"><span class="txt-zh">怡保</span><span class="txt-en">Ipoh</span></a>
+      <a href="/johor" class="loc-link loc-cell" data-loc="johor" data-region="south"><span class="txt-zh">柔佛</span><span class="txt-en">Johor</span></a>
+      <a href="/kepong" class="loc-link loc-cell" data-loc="kepong" data-region="kl"><span class="txt-zh">甲洞</span><span class="txt-en">Kepong</span></a>
+      <a href="/klang" class="loc-link loc-cell" data-loc="klang" data-region="selangor"><span class="txt-zh">巴生</span><span class="txt-en">Klang</span></a>
+      <a href="/kota-damansara" class="loc-link loc-cell" data-loc="kota-damansara" data-region="selangor"><span class="txt-zh">哥打白沙罗</span><span class="txt-en">Kota Damansara</span></a>
+      <a href="/kuala-lumpur" class="loc-link loc-cell" data-loc="kuala-lumpur" data-region="kl"><span class="txt-zh">吉隆坡</span><span class="txt-en">Kuala Lumpur</span></a>
+      <a href="/langkawi" class="loc-link loc-cell" data-loc="langkawi" data-region="north"><span class="txt-zh">浮罗交怡</span><span class="txt-en">Langkawi</span></a>
+      <a href="/melaka" class="loc-link loc-cell" data-loc="melaka" data-region="south"><span class="txt-zh">马六甲</span><span class="txt-en">Melaka</span></a>
+      <a href="/mont-kiara" class="loc-link loc-cell" data-loc="mont-kiara" data-region="kl"><span class="txt-zh">满家乐</span><span class="txt-en">Mont Kiara</span></a>
+      <a href="/pahang" class="loc-link loc-cell" data-loc="pahang" data-region="east"><span class="txt-zh">彭亨</span><span class="txt-en">Pahang</span></a>
+      <a href="/penang" class="loc-link loc-cell" data-loc="penang" data-region="north"><span class="txt-zh">槟城</span><span class="txt-en">Penang</span></a>
+      <a href="/petaling-jaya" class="loc-link loc-cell" data-loc="petaling-jaya" data-region="selangor"><span class="txt-zh">八打灵再也</span><span class="txt-en">Petaling Jaya</span></a>
+      <a href="/port-dickson" class="loc-link loc-cell" data-loc="port-dickson" data-region="south"><span class="txt-zh">波德申</span><span class="txt-en">Port Dickson</span></a>
+      <a href="/puchong" class="loc-link loc-cell loc-active" data-loc="puchong" data-region="selangor"><span class="txt-zh">蒲种</span><span class="txt-en">Puchong</span></a>
+      <a href="/sabah" class="loc-link loc-cell" data-loc="sabah" data-region="east"><span class="txt-zh">沙巴</span><span class="txt-en">Sabah</span></a>
+      <a href="/sarawak" class="loc-link loc-cell" data-loc="sarawak" data-region="east"><span class="txt-zh">砂拉越</span><span class="txt-en">Sarawak</span></a>
+      <a href="/serdang" class="loc-link loc-cell" data-loc="serdang" data-region="selangor"><span class="txt-zh">沙登</span><span class="txt-en">Serdang</span></a>
+      <a href="/seremban" class="loc-link loc-cell" data-loc="seremban" data-region="south"><span class="txt-zh">芙蓉</span><span class="txt-en">Seremban</span></a>
+      <a href="/setia-alam" class="loc-link loc-cell" data-loc="setia-alam" data-region="selangor"><span class="txt-zh">实达阿南</span><span class="txt-en">Setia Alam</span></a>
+      <a href="/sri-petaling" class="loc-link loc-cell" data-loc="sri-petaling" data-region="kl"><span class="txt-zh">大城堡</span><span class="txt-en">Sri Petaling</span></a>
+      <a href="/subang" class="loc-link loc-cell" data-loc="subang" data-region="selangor"><span class="txt-zh">梳邦</span><span class="txt-en">Subang</span></a>
+      <a href="/taiping" class="loc-link loc-cell" data-loc="taiping" data-region="north"><span class="txt-zh">太平</span><span class="txt-en">Taiping</span></a>
+    </div>
+    <div class="flex items-center justify-between pt-4 border-t border-brass-300/20 mt-5">
+      <span class="font-body text-xs text-white/55">Language / 语言</span>
+      <button onclick="toggleLang()" class="inline-flex items-center gap-1.5 border border-brass-400/35 font-body text-xs px-3 py-1.5 rounded-full text-white/85">
+        <i class="fa-solid fa-globe text-[.6rem]"></i>
+        <span id="lang-label-mob">中文</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div id="page-loc" class="page active">
+
+    <!-- ── Location header ── -->
+    <section class="scales-bg px-5 pt-10 pb-8 md:pt-14 md:pb-10 border-b border-brass-300/15">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="font-body text-[.7rem] text-white/45 mb-3 tracking-wide">
+          <a href="/" class="hover:text-brass-300"><span class="txt-zh">首页</span><span class="txt-en">Home</span></a>
+          <span class="mx-1.5 text-white/25">/</span><span id="loc-region"><span class="txt-zh">雪兰莪区</span><span class="txt-en">Selangor area</span> <span class="mx-1.5 text-white/25">/</span> <span class="text-brass-300"><span class="txt-zh">蒲种</span><span class="txt-en">Puchong</span></span></span>
+        </p>
+        <div class="inline-flex items-center gap-3 mb-3">
+          <span class="w-6 h-px bg-brass-400/40"></span>
+          <span class="font-body text-[.7rem] tracking-[.12em] text-brass-300/80 uppercase"><span class="txt-zh">禅宁 SPA 分店</span><span class="txt-en">Zen Ning SPA Branch</span></span>
+          <span class="w-6 h-px bg-brass-400/40"></span>
+        </div>
+        <h1 id="loc-title" class="font-display text-[2rem] md:text-[2.8rem] font-bold text-white leading-tight mb-3"><span class="txt-zh">蒲种按摩 SPA</span><span class="txt-en">Massage &amp; Spa in Puchong</span></h1>
+        <p id="loc-count" class="font-body text-white/60 text-sm mb-6"><span class="txt-zh">方便蒲种、斯里肯邦安顾客，本店共有 <b class="text-brass-300">7</b> 位认证理疗师为您服务</span><span class="txt-en"><b class="text-brass-300">7</b> certified therapists — convenient for Puchong and Seri Kembangan.</span></p>
+        <a id="loc-view" href="#loc-first" onclick="viewFirst();return false"
+           class="inline-flex items-center gap-2 bg-sage-500 hover:bg-sage-600 text-white font-body text-sm px-6 py-3 rounded-full transition-colors">
+          <span class="txt-zh">立即查看</span><span class="txt-en">View Now</span><i class="fa-solid fa-arrow-down text-[.75rem]"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Therapist showcase ── -->
+    <section class="py-16 px-5" style="background:linear-gradient(180deg,#3D1A04 0%,#2D1008 100%);">
+      <div class="max-w-5xl mx-auto">
+
+        <!-- Section label -->
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center gap-3 mb-3">
+            <span class="w-6 h-px bg-brass-400/40"></span>
+            <span class="font-body text-[.7rem] tracking-[.12em] text-brass-300/70 uppercase"><span class="txt-zh">专业认证 · 效果保证</span><span class="txt-en">Certified · Results Guaranteed</span></span>
+            <span class="w-6 h-px bg-brass-400/40"></span>
+          </div>
+          <h2 class="font-display text-2xl md:text-[1.9rem] font-bold text-white"><span class="txt-zh">个个持证上岗，服务有据可查</span><span class="txt-en">Certified, Trained &amp; Accountable</span></h2>
+        </div>
+
+        <!-- ── Desktop 2-col editorial split ── -->
+        <div id="loc-first" class="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch mb-6">
+
+          <!-- Left: featured therapist portrait (filled by fillLoc) -->
+          <div class="w-full md:w-5/12 flex-shrink-0">
+            <div id="loc-lead" class="rounded-2xl overflow-hidden relative group aspect-[3/4]"><img src="/photos/therapists/linh.jpg" alt="Linh" onerror="this.onerror=null;this.src='https://i.pravatar.cc/600?img=25'" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy"><div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 45%,rgba(18,2,1,.92) 100%)"></div><div class="absolute top-4 left-4"><span class="font-body text-[.6rem] bg-brass-400/30 text-brass-300 px-2.5 py-1 rounded-full border border-brass-400/25"><span class="txt-zh">4年经验</span><span class="txt-en">4 Yrs Exp.</span></span></div><div class="absolute bottom-0 left-0 right-0 p-5"><p class="font-display text-white text-xl font-semibold leading-tight"><span class="txt-zh">玲 Linh</span><span class="txt-en">Linh</span></p><p class="font-body text-white/55 text-[.7rem] mt-1"><span class="txt-zh">压穴舒压 · 肩颈放松</span><span class="txt-en">Acupoint · Neck & Shoulder</span></p></div></div>
+          </div>
+
+          <!-- Right: brand story + certifications + CTA -->
+          <div class="w-full md:w-7/12 flex flex-col justify-center py-2 md:py-6">
+            <p class="font-display text-[1.3rem] md:text-[1.65rem] font-bold text-white/90 leading-snug mb-5">
+              <span class="txt-zh">每位技师上岗前须完成 3 个月 SOP 培训，<br>持有<span class="text-sage-300">国际认证</span>才能为您服务。</span>
+              <span class="txt-en">Every therapist completes 3-month SOP training<br>and holds <span class="text-sage-300">international certification</span> before seeing clients.</span>
+            </p>
+
+            <!-- Cert / credential pills -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full">
+                <i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i>
+                <span class="txt-zh">泰国 WAT PO 认证</span><span class="txt-en">WAT PO Certified</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full">
+                <i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i>
+                <span class="txt-zh">CIBTAC 国际认证</span><span class="txt-en">CIBTAC International</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full">
+                <i class="fa-solid fa-shield-halved text-[.55rem] text-sage-400"></i>
+                <span class="txt-zh">马来西亚旅游部注册</span><span class="txt-en">Ministry of Tourism Reg.</span>
+              </span>
+              <span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full">
+                <i class="fa-solid fa-star text-[.55rem] text-sage-400"></i>
+                <span class="txt-zh">平均 5 年以上经验</span><span class="txt-en">Avg. 5+ Yrs Experience</span>
+              </span>
+            </div>
+
+            <!-- Stats row -->
+            <div class="flex gap-6 mb-7">
+              <div>
+                <p class="font-display text-2xl text-white font-light">181<span class="text-sage-400">+</span></p>
+                <p class="font-body text-white/40 text-[.65rem] mt-0.5"><span class="txt-zh">专业理疗师</span><span class="txt-en">Therapists</span></p>
+              </div>
+              <div class="w-px bg-white/10 self-stretch"></div>
+              <div>
+                <p class="font-display text-2xl text-white font-light">26</p>
+                <p class="font-body text-white/40 text-[.65rem] mt-0.5"><span class="txt-zh">全马地点</span><span class="txt-en">Locations</span></p>
+              </div>
+              <div class="w-px bg-white/10 self-stretch"></div>
+              <div>
+                <p class="font-display text-2xl text-white font-light">6<span class="text-sage-400">+</span></p>
+                <p class="font-body text-white/40 text-[.65rem] mt-0.5"><span class="txt-zh">国籍多元</span><span class="txt-en">Nationalities</span></p>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="flex flex-wrap gap-3">
+              <a id="loc-lead-book" class="tg-book inline-flex items-center gap-2 font-body text-sm font-medium bg-[#27AEDC] hover:bg-[#1a9bc8] text-white px-5 py-2.5 rounded-full transition-colors duration-200"
+                 href="https://t.me/ZenNingSPA" target="_blank" rel="noopener" data-zh="玲 Linh" data-en="Linh">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="shrink-0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="txt-zh">立即预约</span><span class="txt-en">Book Now!</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remaining therapists — rendered by fillLoc() -->
+        <div id="loc-team" class="flex flex-col gap-6">
+          <!-- Nurul Ain -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch"><div class="w-full md:w-5/12 flex-shrink-0"><div class="rounded-2xl overflow-hidden relative group aspect-[3/4]"><img src="/photos/therapists/nurul-ain.jpg" alt="Nurul Ain" onerror="this.onerror=null;this.src='https://i.pravatar.cc/600?img=23'" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy"><div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 45%,rgba(18,2,1,.92) 100%)"></div><div class="absolute top-4 left-4"><span class="font-body text-[.6rem] bg-brass-400/30 text-brass-300 px-2.5 py-1 rounded-full border border-brass-400/25"><span class="txt-zh">6年经验</span><span class="txt-en">6 Yrs Exp.</span></span></div><div class="absolute bottom-0 left-0 right-0 p-5"><p class="font-display text-white text-xl font-semibold leading-tight"><span class="txt-zh">努鲁爱茵</span><span class="txt-en">Nurul Ain</span></p><p class="font-body text-white/55 text-[.7rem] mt-1"><span class="txt-zh">精油芳香疗愈 · 淋巴排毒</span><span class="txt-en">Aromatherapy · Lymph Detox</span></p></div></div></div><div class="w-full md:w-7/12 flex flex-col justify-center py-2 md:py-4"><p class="font-display text-[1.3rem] md:text-[1.6rem] font-light text-white/90 leading-snug mb-4"><span class="txt-zh">芬香渗透，温柔疗愈的力量。</span><span class="txt-en">The quiet power of<br><span class="text-sage-300">scent and touch.</span></span></p><div class="flex flex-wrap gap-2 mb-5"><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i><span class="txt-zh">ITEC 认证芳疗师</span><span class="txt-en">ITEC Certified Aromatherapist</span></span><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-flag text-[.55rem] text-sage-400"></i><span class="txt-zh">🇲🇾 马来西亚</span><span class="txt-en">🇲🇾 Malaysia</span></span></div><div class="flex flex-wrap gap-2"><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">精油芳疗</span><span class="txt-en">Aromatherapy</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">淋巴排毒</span><span class="txt-en">Lymph Detox</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">全身放松</span><span class="txt-en">Full Body Relax</span></span></div><div class="mt-5"><a class="tg-book inline-flex items-center gap-2 font-body text-sm font-medium bg-[#27AEDC] hover:bg-[#1a9bc8] text-white px-5 py-2.5 rounded-full transition-colors duration-200" href="tg://msg?to=@ZenNingSPA&amp;text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%A2%84%E7%BA%A6%E7%A6%85%E5%AE%81%20SPA%20%E8%92%B2%E7%A7%8D%EF%BC%88Puchong%EF%BC%89%E5%88%86%E5%BA%97%E7%9A%84%20%E5%8A%AA%E9%B2%81%E7%88%B1%E8%8C%B5%20%E6%8A%80%E5%B8%88" target="_blank" rel="noopener" data-zh="努鲁爱茵" data-en="Nurul Ain"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="shrink-0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="txt-zh">立即预约</span><span class="txt-en">Book Now!</span></a></div></div></div>
+          <!-- Siti Rahmah -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch"><div class="w-full md:w-5/12 flex-shrink-0"><div class="rounded-2xl overflow-hidden relative group aspect-[3/4]"><img src="/photos/therapists/siti-rahmah.jpg" alt="Siti Rahmah" onerror="this.onerror=null;this.src='https://i.pravatar.cc/600?img=33'" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy"><div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 45%,rgba(18,2,1,.92) 100%)"></div><div class="absolute top-4 left-4"><span class="font-body text-[.6rem] bg-brass-400/30 text-brass-300 px-2.5 py-1 rounded-full border border-brass-400/25"><span class="txt-zh">5年经验</span><span class="txt-en">5 Yrs Exp.</span></span></div><div class="absolute bottom-0 left-0 right-0 p-5"><p class="font-display text-white text-xl font-semibold leading-tight"><span class="txt-zh">希蒂·拉赫玛</span><span class="txt-en">Siti Rahmah</span></p><p class="font-body text-white/55 text-[.7rem] mt-1"><span class="txt-zh">热石疗愈 · 深层筋膜</span><span class="txt-en">Hot Stone · Deep Fascia</span></p></div></div></div><div class="w-full md:w-7/12 flex flex-col justify-center py-2 md:py-4"><p class="font-display text-[1.3rem] md:text-[1.6rem] font-light text-white/90 leading-snug mb-4"><span class="txt-zh">热石的温度，融化每一处<span class="text-sage-300">紧结与疲惫</span>。</span><span class="txt-en">Warmth that melts every<br><span class="text-sage-300">knot and tension.</span></span></p><div class="flex flex-wrap gap-2 mb-5"><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i><span class="txt-zh">Bali BSPA 热石认证</span><span class="txt-en">Bali BSPA Hot Stone Cert.</span></span><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-flag text-[.55rem] text-sage-400"></i><span class="txt-zh">🇮🇩 印尼</span><span class="txt-en">🇮🇩 Indonesia</span></span></div><div class="flex flex-wrap gap-2"><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">热石疗愈</span><span class="txt-en">Hot Stone</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">深层筋膜</span><span class="txt-en">Deep Fascia</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">脊背舒压</span><span class="txt-en">Back Relief</span></span></div><div class="mt-5"><a class="tg-book inline-flex items-center gap-2 font-body text-sm font-medium bg-[#27AEDC] hover:bg-[#1a9bc8] text-white px-5 py-2.5 rounded-full transition-colors duration-200" href="tg://msg?to=@ZenNingSPA&amp;text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%A2%84%E7%BA%A6%E7%A6%85%E5%AE%81%20SPA%20%E8%92%B2%E7%A7%8D%EF%BC%88Puchong%EF%BC%89%E5%88%86%E5%BA%97%E7%9A%84%20%E5%B8%8C%E8%92%82%C2%B7%E6%8B%89%E8%B5%AB%E7%8E%9B%20%E6%8A%80%E5%B8%88" target="_blank" rel="noopener" data-zh="希蒂·拉赫玛" data-en="Siti Rahmah"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="shrink-0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="txt-zh">立即预约</span><span class="txt-en">Book Now!</span></a></div></div></div>
+          <!-- Yuk Lian -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch"><div class="w-full md:w-5/12 flex-shrink-0"><div class="rounded-2xl overflow-hidden relative group aspect-[3/4]"><img src="/photos/therapists/yuk-lian.jpg" alt="Yuk Lian" onerror="this.onerror=null;this.src='https://i.pravatar.cc/600?img=26'" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy"><div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 45%,rgba(18,2,1,.92) 100%)"></div><div class="absolute top-4 left-4"><span class="font-body text-[.6rem] bg-brass-400/30 text-brass-300 px-2.5 py-1 rounded-full border border-brass-400/25"><span class="txt-zh">7年经验</span><span class="txt-en">7 Yrs Exp.</span></span></div><div class="absolute bottom-0 left-0 right-0 p-5"><p class="font-display text-white text-xl font-semibold leading-tight"><span class="txt-zh">玉莲</span><span class="txt-en">Yuk Lian</span></p><p class="font-body text-white/55 text-[.7rem] mt-1"><span class="txt-zh">精油热敷 · 肩颈深层</span><span class="txt-en">Oil & Heat · Deep Neck</span></p></div></div></div><div class="w-full md:w-7/12 flex flex-col justify-center py-2 md:py-4"><p class="font-display text-[1.3rem] md:text-[1.6rem] font-light text-white/90 leading-snug mb-4"><span class="txt-zh">久坐的肩颈，需要一双<span class="text-sage-300">懂它的手</span>。</span><span class="txt-en">Desk-bound shoulders need<br><span class="text-sage-300">hands that understand them.</span></span></p><div class="flex flex-wrap gap-2 mb-5"><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i><span class="txt-zh">IFPA 国际芳疗认证</span><span class="txt-en">IFPA Aromatherapy Cert.</span></span><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-flag text-[.55rem] text-sage-400"></i><span class="txt-zh">🇲🇾 马来西亚</span><span class="txt-en">🇲🇾 Malaysia</span></span></div><div class="flex flex-wrap gap-2"><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">精油热敷</span><span class="txt-en">Oil & Heat</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">肩颈深层</span><span class="txt-en">Deep Neck</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">办公族舒压</span><span class="txt-en">Desk Relief</span></span></div><div class="mt-5"><a class="tg-book inline-flex items-center gap-2 font-body text-sm font-medium bg-[#27AEDC] hover:bg-[#1a9bc8] text-white px-5 py-2.5 rounded-full transition-colors duration-200" href="tg://msg?to=@ZenNingSPA&amp;text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%A2%84%E7%BA%A6%E7%A6%85%E5%AE%81%20SPA%20%E8%92%B2%E7%A7%8D%EF%BC%88Puchong%EF%BC%89%E5%88%86%E5%BA%97%E7%9A%84%20%E7%8E%89%E8%8E%B2%20%E6%8A%80%E5%B8%88" target="_blank" rel="noopener" data-zh="玉莲" data-en="Yuk Lian"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="shrink-0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="txt-zh">立即预约</span><span class="txt-en">Book Now!</span></a></div></div></div>
+          <!-- Nattaya -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch"><div class="w-full md:w-5/12 flex-shrink-0"><div class="rounded-2xl overflow-hidden relative group aspect-[3/4]"><img src="/photos/therapists/nattaya.jpg" alt="Nattaya" onerror="this.onerror=null;this.src='https://i.pravatar.cc/600?img=44'" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy"><div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 45%,rgba(18,2,1,.92) 100%)"></div><div class="absolute top-4 left-4"><span class="font-body text-[.6rem] bg-brass-400/30 text-brass-300 px-2.5 py-1 rounded-full border border-brass-400/25"><span class="txt-zh">9年经验</span><span class="txt-en">9 Yrs Exp.</span></span></div><div class="absolute bottom-0 left-0 right-0 p-5"><p class="font-display text-white text-xl font-semibold leading-tight"><span class="txt-zh">娜塔雅</span><span class="txt-en">Nattaya</span></p><p class="font-body text-white/55 text-[.7rem] mt-1"><span class="txt-zh">泰式拉伸 · 运动理疗</span><span class="txt-en">Thai Stretch · Sports Therapy</span></p></div></div></div><div class="w-full md:w-7/12 flex flex-col justify-center py-2 md:py-4"><p class="font-display text-[1.3rem] md:text-[1.6rem] font-light text-white/90 leading-snug mb-4"><span class="txt-zh">拉开筋骨，让身体<span class="text-sage-300">重新打开</span>。</span><span class="txt-en">Stretch deep, and the body<br><span class="text-sage-300">opens up again.</span></span></p><div class="flex flex-wrap gap-2 mb-5"><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i><span class="txt-zh">泰国卫生部注册</span><span class="txt-en">Thai Ministry of Health Reg.</span></span><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-flag text-[.55rem] text-sage-400"></i><span class="txt-zh">🇹🇭 泰国</span><span class="txt-en">🇹🇭 Thailand</span></span></div><div class="flex flex-wrap gap-2"><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">泰式拉伸</span><span class="txt-en">Thai Stretch</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">运动理疗</span><span class="txt-en">Sports Therapy</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">关节舒展</span><span class="txt-en">Joint Mobility</span></span></div><div class="mt-5"><a class="tg-book inline-flex items-center gap-2 font-body text-sm font-medium bg-[#27AEDC] hover:bg-[#1a9bc8] text-white px-5 py-2.5 rounded-full transition-colors duration-200" href="tg://msg?to=@ZenNingSPA&amp;text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%A2%84%E7%BA%A6%E7%A6%85%E5%AE%81%20SPA%20%E8%92%B2%E7%A7%8D%EF%BC%88Puchong%EF%BC%89%E5%88%86%E5%BA%97%E7%9A%84%20%E5%A8%9C%E5%A1%94%E9%9B%85%20%E6%8A%80%E5%B8%88" target="_blank" rel="noopener" data-zh="娜塔雅" data-en="Nattaya"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="shrink-0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="txt-zh">立即预约</span><span class="txt-en">Book Now!</span></a></div></div></div>
+          <!-- Mya -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch"><div class="w-full md:w-5/12 flex-shrink-0"><div class="rounded-2xl overflow-hidden relative group aspect-[3/4]"><img src="/photos/therapists/mya.jpg" alt="Mya" onerror="this.onerror=null;this.src='https://i.pravatar.cc/600?img=20'" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy"><div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 45%,rgba(18,2,1,.92) 100%)"></div><div class="absolute top-4 left-4"><span class="font-body text-[.6rem] bg-brass-400/30 text-brass-300 px-2.5 py-1 rounded-full border border-brass-400/25"><span class="txt-zh">4年经验</span><span class="txt-en">4 Yrs Exp.</span></span></div><div class="absolute bottom-0 left-0 right-0 p-5"><p class="font-display text-white text-xl font-semibold leading-tight"><span class="txt-zh">媚 Mya</span><span class="txt-en">Mya</span></p><p class="font-body text-white/55 text-[.7rem] mt-1"><span class="txt-zh">缅式古法 · 全身舒缓</span><span class="txt-en">Burmese Traditional · Full Body</span></p></div></div></div><div class="w-full md:w-7/12 flex flex-col justify-center py-2 md:py-4"><p class="font-display text-[1.3rem] md:text-[1.6rem] font-light text-white/90 leading-snug mb-4"><span class="txt-zh">慢下来的节奏，<span class="text-sage-300">身体自然松开</span>。</span><span class="txt-en">A slower rhythm, and<br><span class="text-sage-300">the body lets go on its own.</span></span></p><div class="flex flex-wrap gap-2 mb-5"><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i><span class="txt-zh">缅甸传统疗法认证</span><span class="txt-en">Burmese Traditional Cert.</span></span><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-flag text-[.55rem] text-sage-400"></i><span class="txt-zh">🇲🇲 缅甸</span><span class="txt-en">🇲🇲 Myanmar</span></span></div><div class="flex flex-wrap gap-2"><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">缅式古法</span><span class="txt-en">Burmese</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">全身舒缓</span><span class="txt-en">Full Body</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">睡眠改善</span><span class="txt-en">Better Sleep</span></span></div><div class="mt-5"><a class="tg-book inline-flex items-center gap-2 font-body text-sm font-medium bg-[#27AEDC] hover:bg-[#1a9bc8] text-white px-5 py-2.5 rounded-full transition-colors duration-200" href="tg://msg?to=@ZenNingSPA&amp;text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%A2%84%E7%BA%A6%E7%A6%85%E5%AE%81%20SPA%20%E8%92%B2%E7%A7%8D%EF%BC%88Puchong%EF%BC%89%E5%88%86%E5%BA%97%E7%9A%84%20%E5%AA%9A%20Mya%20%E6%8A%80%E5%B8%88" target="_blank" rel="noopener" data-zh="媚 Mya" data-en="Mya"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="shrink-0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="txt-zh">立即预约</span><span class="txt-en">Book Now!</span></a></div></div></div>
+          <!-- Coco -->
+          <div class="flex flex-col md:flex-row gap-6 md:gap-10 items-stretch"><div class="w-full md:w-5/12 flex-shrink-0"><div class="rounded-2xl overflow-hidden relative group aspect-[3/4]"><img src="/photos/therapists/coco.jpg" alt="Coco" onerror="this.onerror=null;this.src='https://i.pravatar.cc/600?img=52'" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" loading="lazy"><div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 45%,rgba(18,2,1,.92) 100%)"></div><div class="absolute top-4 left-4"><span class="font-body text-[.6rem] bg-brass-400/30 text-brass-300 px-2.5 py-1 rounded-full border border-brass-400/25"><span class="txt-zh">7年经验</span><span class="txt-en">7 Yrs Exp.</span></span></div><div class="absolute bottom-0 left-0 right-0 p-5"><p class="font-display text-white text-xl font-semibold leading-tight"><span class="txt-zh">可可 Coco</span><span class="txt-en">Coco</span></p><p class="font-body text-white/55 text-[.7rem] mt-1"><span class="txt-zh">泰式古法 · 脊背舒压</span><span class="txt-en">Traditional Thai · Back Relief</span></p></div></div></div><div class="w-full md:w-7/12 flex flex-col justify-center py-2 md:py-4"><p class="font-display text-[1.3rem] md:text-[1.6rem] font-light text-white/90 leading-snug mb-4"><span class="txt-zh">泰式的智慧，传承数千年的<span class="text-sage-300">疗愈艺术</span>。</span><span class="txt-en">Ancient wisdom<br>carried in every<span class="text-sage-300"> movement.</span></span></p><div class="flex flex-wrap gap-2 mb-5"><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-certificate text-[.55rem] text-sage-400"></i><span class="txt-zh">泰国 WAT PO 认证</span><span class="txt-en">WAT PO Thailand Cert.</span></span><span class="inline-flex items-center gap-1.5 font-body text-[.68rem] text-brass-300/80 bg-white/[.06] border border-brass-400/15 px-3 py-1.5 rounded-full"><i class="fa-solid fa-flag text-[.55rem] text-sage-400"></i><span class="txt-zh">🇹🇭 泰国</span><span class="txt-en">🇹🇭 Thailand</span></span></div><div class="flex flex-wrap gap-2"><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">泰式古法</span><span class="txt-en">Traditional Thai</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">脊背舒压</span><span class="txt-en">Back Relief</span></span><span class="font-body text-[.7rem] bg-white/[.08] text-white/60 border border-white/10 px-3 py-1.5 rounded-full"><span class="txt-zh">跨步伸展</span><span class="txt-en">Stretch Therapy</span></span></div><div class="mt-5"><a class="tg-book inline-flex items-center gap-2 font-body text-sm font-medium bg-[#27AEDC] hover:bg-[#1a9bc8] text-white px-5 py-2.5 rounded-full transition-colors duration-200" href="tg://msg?to=@ZenNingSPA&amp;text=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E9%A2%84%E7%BA%A6%E7%A6%85%E5%AE%81%20SPA%20%E8%92%B2%E7%A7%8D%EF%BC%88Puchong%EF%BC%89%E5%88%86%E5%BA%97%E7%9A%84%20%E5%8F%AF%E5%8F%AF%20Coco%20%E6%8A%80%E5%B8%88" target="_blank" rel="noopener" data-zh="可可 Coco" data-en="Coco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="shrink-0"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="txt-zh">立即预约</span><span class="txt-en">Book Now!</span></a></div></div></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Closing: promise + stats ── -->
+    <section class="py-16 md:py-20 px-5" style="background:linear-gradient(180deg,#2D1008 0%,#1E0804 100%);border-top:1px solid rgba(255,255,255,.07);">
+      <div class="max-w-2xl mx-auto text-center">
+
+        <!-- Ornament -->
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <span class="h-px w-10 bg-gradient-to-r from-transparent to-brass-400/50"></span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#D4AF61" stroke-width="1.2" stroke-linecap="round" class="opacity-80">
+            <path d="M12 3c-2.5 3-4 5.5-4 8a4 4 0 0 0 8 0c0-2.5-1.5-5-4-8z"/><path d="M12 15v6"/><path d="M8.5 19.5c1.2.9 2.3 1.3 3.5 1.3s2.3-.4 3.5-1.3"/>
+          </svg>
+          <span class="h-px w-10 bg-gradient-to-l from-transparent to-brass-400/50"></span>
+        </div>
+
+        <!-- Promise paragraph -->
+        <p class="font-display text-[1.35rem] md:text-[1.75rem] font-light text-white/95 leading-snug mb-5">
+          <span class="txt-zh">一双好手，<span class="text-brass-300">胜过千言万语</span>。</span>
+          <span class="txt-en">The right hands say<br class="hidden sm:block"><span class="text-brass-300"> more than words ever could.</span></span>
+        </p>
+        <p class="font-body text-white/55 text-sm leading-relaxed max-w-lg mx-auto mb-10">
+          <span class="txt-zh">在<b id="loc-promise-zh" class="text-white/80 font-medium">蒲种分店</b>，每一位技师都经过 3 个月 SOP 培训、持国际认证上岗。价格明码标价，手法按您的身体状况调整，不推销、不加价。从踏进门的那一刻起，剩下的交给我们。</span>
+          <span class="txt-en">At our <b id="loc-promise-en" class="text-white/80 font-medium">Puchong</b> branch, every therapist completes three months of SOP training and holds international certification. Prices are posted upfront, pressure is adjusted to your body, and nobody upsells you. From the moment you walk in, the rest is on us.</span>
+        </p>
+
+        <!-- Three promises -->
+        <div class="grid grid-cols-3 gap-px bg-white/[.07] rounded-2xl overflow-hidden mb-10 border border-white/[.07]">
+          <div class="px-3 py-5" style="background:#241007">
+            <p class="font-display text-brass-300 text-[1.05rem] mb-1"><span class="txt-zh">明码标价</span><span class="txt-en">Upfront</span></p>
+            <p class="font-body text-white/40 text-[.65rem] leading-relaxed"><span class="txt-zh">价格写在卡片上<br>无隐形收费</span><span class="txt-en">Posted prices<br>no hidden fees</span></p>
+          </div>
+          <div class="px-3 py-5" style="background:#241007">
+            <p class="font-display text-brass-300 text-[1.05rem] mb-1"><span class="txt-zh">持证上岗</span><span class="txt-en">Certified</span></p>
+            <p class="font-body text-white/40 text-[.65rem] leading-relaxed"><span class="txt-zh">国际认证技师<br>3 个月培训</span><span class="txt-en">Licensed therapists<br>3-month training</span></p>
+          </div>
+          <div class="px-3 py-5" style="background:#241007">
+            <p class="font-display text-brass-300 text-[1.05rem] mb-1"><span class="txt-zh">随约随到</span><span class="txt-en">Same-day</span></p>
+            <p class="font-body text-white/40 text-[.65rem] leading-relaxed"><span class="txt-zh">当天预约<br>男女皆宜</span><span class="txt-en">Book today<br>all genders welcome</span></p>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 divide-x divide-white/10 max-w-sm mx-auto">
+          <div class="px-3">
+            <p class="font-display text-[1.7rem] text-white font-light leading-none"><span class="txt-zh">8年</span><span class="txt-en">8 Yrs</span></p>
+            <p class="text-white/35 text-[.65rem] font-body mt-1.5 tracking-wide"><span class="txt-zh">专业经验</span><span class="txt-en">Experience</span></p>
+          </div>
+          <div class="px-3">
+            <p class="font-display text-[1.7rem] text-white font-light leading-none">5000+</p>
+            <p class="text-white/35 text-[.65rem] font-body mt-1.5 tracking-wide"><span class="txt-zh">满意顾客</span><span class="txt-en">Happy Clients</span></p>
+          </div>
+          <div class="px-3">
+            <p class="font-display text-[1.7rem] text-white font-light leading-none">4.9★</p>
+            <p class="text-white/35 text-[.65rem] font-body mt-1.5 tracking-wide"><span class="txt-zh">顾客评分</span><span class="txt-en">Client Rating</span></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /page-loc -->
+</main>
+
+<footer class="bg-umber-900 py-9 px-5">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+    <div class="text-center md:text-left">
+      <p class="font-display text-xl text-white/90">禅宁 <span class="text-brass-400">SPA</span></p>
+      <p class="text-white/35 text-[.68rem] font-body mt-1 tracking-widest">ZEN NING WELLNESS · KUALA LUMPUR</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3 items-center">
+      <a href="https://t.me/ZenNingSPA" target="_blank"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sage-500/30 hover:bg-sage-500/60 text-white/85 hover:text-white text-sm font-body transition-colors">
+        <i class="fa-brands fa-telegram text-base"></i>
+        <span class="txt-zh">联系我们 · Telegram</span>
+        <span class="txt-en">Contact via Telegram</span>
+      </a>
+      <a href="/blog"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white/85 hover:text-white text-sm font-body transition-colors">
+        <i class="fa-solid fa-newspaper text-base"></i>
+        <span class="txt-zh">养生博客</span>
+        <span class="txt-en">Wellness Blog</span>
+      </a>
+    </div>
+    <p class="text-white/25 text-[.68rem] font-body">© 2026 禅宁 SPA · All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ═══════════ TELEGRAM FLOATING BUTTON ═══════════ -->
+<a id="tg-fab"
+   href="https://t.me/ZenNingSPA" target="_blank" rel="noopener"
+   aria-label="联系我们 Telegram"
+   style="position:fixed;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));right:1.25rem;z-index:50;display:flex;align-items:center;justify-content:center;width:3.5rem;height:3.5rem;border-radius:9999px;background:#27AEDC;text-decoration:none;transition:transform .15s,background .2s;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+</a>
+
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>

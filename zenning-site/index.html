@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>禅宁 SPA Zen Ning Wellness | 全马 26 个地点 · 持证按摩理疗</title>
+<meta name="description" content="禅宁 SPA 在全马 26 个地点提供泰式古法按摩、精油芳疗、足底反射与热石理疗。181 位持证技师，明码标价，Telegram 即时预约。Certified massage and spa across 26 locations in Malaysia.">
+<link rel="canonical" href="https://zenning-site.vercel.app/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="禅宁 SPA Zen Ning Wellness">
+<meta property="og:title" content="禅宁 SPA Zen Ning Wellness | 全马 26 个地点 · 持证按摩理疗">
+<meta property="og:description" content="禅宁 SPA 在全马 26 个地点提供泰式古法按摩、精油芳疗、足底反射与热石理疗。181 位持证技师，明码标价，Telegram 即时预约。Certified massage and spa across 26 locations in Malaysia.">
+<meta property="og:url" content="https://zenning-site.vercel.app/">
+<meta property="og:image" content="https://zenning-site.vercel.app/assets/hero.jpg">
+<meta property="og:locale" content="en_MY">
+<meta property="og:locale:alternate" content="zh_MY">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<link rel="preload" as="image" href="/assets/hero.jpg">
+
+</head>
+<body>
+
+<header id="site-header" class="sticky z-50 scales-bg border-b border-brass-300/40 shadow-sm">
+  <nav class="max-w-[2200px] mx-auto px-5 md:px-8 xl:px-12 py-3 flex items-center justify-between">
+
+    <!-- Logo → home -->
+    <a href="/" class="flex items-center gap-2.5" data-nav="home">
+      <div class="w-9 h-9 rounded-full bg-sage-500 flex items-center justify-center shrink-0">
+        <i class="fa-solid fa-spa text-sand-50 text-sm"></i>
+      </div>
+      <div class="leading-none">
+        <span class="font-display text-[1.2rem] font-semibold text-white tracking-tight">禅宁 <span class="text-brass-300">SPA</span></span>
+        <p class="text-[.65rem] text-white/55 font-body tracking-widest mt-px">ZEN NING WELLNESS</p>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8 font-body text-white/85 ml-auto mr-8 xl:mr-10">
+      <a href="/services"  class="nav-link" data-nav="services"><span class="txt-zh">服务项目</span><span class="txt-en">Services</span></a>
+      <a href="/blog"      class="nav-link" data-nav="blog"><span class="txt-zh">养生博客</span><span class="txt-en">Blog</span></a>
+    </div>
+
+    <!-- Desktop CTA + hamburger -->
+    <div class="flex items-center gap-3">
+      <button id="lang-toggle" onclick="toggleLang()"
+        class="hidden md:inline-flex items-center gap-1.5 border border-brass-400/40 hover:bg-white/10 text-white/85 font-body text-xs px-3 py-1.5 rounded-full transition-colors">
+        <i class="fa-solid fa-globe text-[.6rem]"></i>
+        <span id="lang-label">中文</span>
+      </button>
+      <button id="ham-btn" class="md:hidden p-2 text-white/85" aria-label="Menu">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Location bar: swipe row on mobile, wrapped rows on desktop -->
+  <div class="loc-wrap border-t border-brass-300/20">
+    <div id="loc-strip" class="loc-strip max-w-[2200px] mx-auto" aria-label="Locations">
+      <div class="loc-row">
+      <a href="/" class="loc-link" data-nav="home"><span class="txt-zh">首页</span><span class="txt-en">Home</span></a>
+      <a href="/ampang" class="loc-link" data-loc="ampang" data-region="kl"><span class="txt-zh">安邦</span><span class="txt-en">Ampang</span></a>
+      <a href="/cheras" class="loc-link" data-loc="cheras" data-region="kl"><span class="txt-zh">蕉赖</span><span class="txt-en">Cheras</span></a>
+      <a href="/cyberjaya" class="loc-link" data-loc="cyberjaya" data-region="selangor"><span class="txt-zh">赛城</span><span class="txt-en">Cyberjaya</span></a>
+      <a href="/genting" class="loc-link" data-loc="genting" data-region="east"><span class="txt-zh">云顶</span><span class="txt-en">Genting</span></a>
+      <a href="/ipoh" class="loc-link" data-loc="ipoh" data-region="north"><span class="txt-zh">怡保</span><span class="txt-en">Ipoh</span></a>
+      <a href="/johor" class="loc-link" data-loc="johor" data-region="south"><span class="txt-zh">柔佛</span><span class="txt-en">Johor</span></a>
+      <a href="/kepong" class="loc-link" data-loc="kepong" data-region="kl"><span class="txt-zh">甲洞</span><span class="txt-en">Kepong</span></a>
+      <a href="/klang" class="loc-link" data-loc="klang" data-region="selangor"><span class="txt-zh">巴生</span><span class="txt-en">Klang</span></a>
+      <a href="/kota-damansara" class="loc-link" data-loc="kota-damansara" data-region="selangor"><span class="txt-zh">哥打白沙罗</span><span class="txt-en">Kota Damansara</span></a>
+      <a href="/kuala-lumpur" class="loc-link" data-loc="kuala-lumpur" data-region="kl"><span class="txt-zh">吉隆坡</span><span class="txt-en">Kuala Lumpur</span></a>
+      <a href="/langkawi" class="loc-link" data-loc="langkawi" data-region="north"><span class="txt-zh">浮罗交怡</span><span class="txt-en">Langkawi</span></a>
+      <a href="/melaka" class="loc-link" data-loc="melaka" data-region="south"><span class="txt-zh">马六甲</span><span class="txt-en">Melaka</span></a>
+      <a href="/mont-kiara" class="loc-link" data-loc="mont-kiara" data-region="kl"><span class="txt-zh">满家乐</span><span class="txt-en">Mont Kiara</span></a>
+      </div>
+      <span class="loc-break" aria-hidden="true"></span>
+      <div class="loc-row">
+      <a href="/pahang" class="loc-link" data-loc="pahang" data-region="east"><span class="txt-zh">彭亨</span><span class="txt-en">Pahang</span></a>
+      <a href="/penang" class="loc-link" data-loc="penang" data-region="north"><span class="txt-zh">槟城</span><span class="txt-en">Penang</span></a>
+      <a href="/petaling-jaya" class="loc-link" data-loc="petaling-jaya" data-region="selangor"><span class="txt-zh">八打灵再也</span><span class="txt-en">Petaling Jaya</span></a>
+      <a href="/port-dickson" class="loc-link" data-loc="port-dickson" data-region="south"><span class="txt-zh">波德申</span><span class="txt-en">Port Dickson</span></a>
+      <a href="/puchong" class="loc-link" data-loc="puchong" data-region="selangor"><span class="txt-zh">蒲种</span><span class="txt-en">Puchong</span></a>
+      <a href="/sabah" class="loc-link" data-loc="sabah" data-region="east"><span class="txt-zh">沙巴</span><span class="txt-en">Sabah</span></a>
+      <a href="/sarawak" class="loc-link" data-loc="sarawak" data-region="east"><span class="txt-zh">砂拉越</span><span class="txt-en">Sarawak</span></a>
+      <a href="/serdang" class="loc-link" data-loc="serdang" data-region="selangor"><span class="txt-zh">沙登</span><span class="txt-en">Serdang</span></a>
+      <a href="/seremban" class="loc-link" data-loc="seremban" data-region="south"><span class="txt-zh">芙蓉</span><span class="txt-en">Seremban</span></a>
+      <a href="/setia-alam" class="loc-link" data-loc="setia-alam" data-region="selangor"><span class="txt-zh">实达阿南</span><span class="txt-en">Setia Alam</span></a>
+      <a href="/sri-petaling" class="loc-link" data-loc="sri-petaling" data-region="kl"><span class="txt-zh">大城堡</span><span class="txt-en">Sri Petaling</span></a>
+      <a href="/subang" class="loc-link" data-loc="subang" data-region="selangor"><span class="txt-zh">梳邦</span><span class="txt-en">Subang</span></a>
+      <a href="/taiping" class="loc-link" data-loc="taiping" data-region="north"><span class="txt-zh">太平</span><span class="txt-en">Taiping</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mob-menu" class="md:hidden scales-bg border-t border-brass-300/25 px-5 pb-5 pt-4">
+    <div class="grid grid-cols-2 gap-2.5">
+      <a href="/services" class="mob-nav-link flex items-center justify-center gap-2 font-body text-sm text-white/85 py-2.5 rounded-lg border border-brass-300/25" data-nav="services"><i class="fa-solid fa-spa text-brass-300 text-xs"></i><span class="txt-zh">服务项目</span><span class="txt-en">Services</span></a>
+      <a href="/blog"     class="mob-nav-link flex items-center justify-center gap-2 font-body text-sm text-white/85 py-2.5 rounded-lg border border-brass-300/25" data-nav="blog"><i class="fa-solid fa-newspaper text-brass-300 text-xs"></i><span class="txt-zh">养生博客</span><span class="txt-en">Blog</span></a>
+    </div>
+    <p class="font-display text-[.62rem] tracking-[.18em] text-brass-300/80 uppercase mt-5 mb-2.5"><span class="txt-zh">全部地点</span><span class="txt-en">All Locations</span></p>
+    <div class="grid grid-cols-3 gap-1.5">
+      <a href="/ampang" class="loc-link loc-cell" data-loc="ampang" data-region="kl"><span class="txt-zh">安邦</span><span class="txt-en">Ampang</span></a>
+      <a href="/cheras" class="loc-link loc-cell" data-loc="cheras" data-region="kl"><span class="txt-zh">蕉赖</span><span class="txt-en">Cheras</span></a>
+      <a href="/cyberjaya" class="loc-link loc-cell" data-loc="cyberjaya" data-region="selangor"><span class="txt-zh">赛城</span><span class="txt-en">Cyberjaya</span></a>
+      <a href="/genting" class="loc-link loc-cell" data-loc="genting" data-region="east"><span class="txt-zh">云顶</span><span class="txt-en">Genting</span></a>
+      <a href="/ipoh" class="loc-link loc-cell" data-loc="ipoh" data-region="north"><span class="txt-zh">怡保</span><span class="txt-en">Ipoh</span></a>
+      <a href="/johor" class="loc-link loc-cell" data-loc="johor" data-region="south"><span class="txt-zh">柔佛</span><span class="txt-en">Johor</span></a>
+      <a href="/kepong" class="loc-link loc-cell" data-loc="kepong" data-region="kl"><span class="txt-zh">甲洞</span><span class="txt-en">Kepong</span></a>
+      <a href="/klang" class="loc-link loc-cell" data-loc="klang" data-region="selangor"><span class="txt-zh">巴生</span><span class="txt-en">Klang</span></a>
+      <a href="/kota-damansara" class="loc-link loc-cell" data-loc="kota-damansara" data-region="selangor"><span class="txt-zh">哥打白沙罗</span><span class="txt-en">Kota Damansara</span></a>
+      <a href="/kuala-lumpur" class="loc-link loc-cell" data-loc="kuala-lumpur" data-region="kl"><span class="txt-zh">吉隆坡</span><span class="txt-en">Kuala Lumpur</span></a>
+      <a href="/langkawi" class="loc-link loc-cell" data-loc="langkawi" data-region="north"><span class="txt-zh">浮罗交怡</span><span class="txt-en">Langkawi</span></a>
+      <a href="/melaka" class="loc-link loc-cell" data-loc="melaka" data-region="south"><span class="txt-zh">马六甲</span><span class="txt-en">Melaka</span></a>
+      <a href="/mont-kiara" class="loc-link loc-cell" data-loc="mont-kiara" data-region="kl"><span class="txt-zh">满家乐</span><span class="txt-en">Mont Kiara</span></a>
+      <a href="/pahang" class="loc-link loc-cell" data-loc="pahang" data-region="east"><span class="txt-zh">彭亨</span><span class="txt-en">Pahang</span></a>
+      <a href="/penang" class="loc-link loc-cell" data-loc="penang" data-region="north"><span class="txt-zh">槟城</span><span class="txt-en">Penang</span></a>
+      <a href="/petaling-jaya" class="loc-link loc-cell" data-loc="petaling-jaya" data-region="selangor"><span class="txt-zh">八打灵再也</span><span class="txt-en">Petaling Jaya</span></a>
+      <a href="/port-dickson" class="loc-link loc-cell" data-loc="port-dickson" data-region="south"><span class="txt-zh">波德申</span><span class="txt-en">Port Dickson</span></a>
+      <a href="/puchong" class="loc-link loc-cell" data-loc="puchong" data-region="selangor"><span class="txt-zh">蒲种</span><span class="txt-en">Puchong</span></a>
+      <a href="/sabah" class="loc-link loc-cell" data-loc="sabah" data-region="east"><span class="txt-zh">沙巴</span><span class="txt-en">Sabah</span></a>
+      <a href="/sarawak" class="loc-link loc-cell" data-loc="sarawak" data-region="east"><span class="txt-zh">砂拉越</span><span class="txt-en">Sarawak</span></a>
+      <a href="/serdang" class="loc-link loc-cell" data-loc="serdang" data-region="selangor"><span class="txt-zh">沙登</span><span class="txt-en">Serdang</span></a>
+      <a href="/seremban" class="loc-link loc-cell" data-loc="seremban" data-region="south"><span class="txt-zh">芙蓉</span><span class="txt-en">Seremban</span></a>
+      <a href="/setia-alam" class="loc-link loc-cell" data-loc="setia-alam" data-region="selangor"><span class="txt-zh">实达阿南</span><span class="txt-en">Setia Alam</span></a>
+      <a href="/sri-petaling" class="loc-link loc-cell" data-loc="sri-petaling" data-region="kl"><span class="txt-zh">大城堡</span><span class="txt-en">Sri Petaling</span></a>
+      <a href="/subang" class="loc-link loc-cell" data-loc="subang" data-region="selangor"><span class="txt-zh">梳邦</span><span class="txt-en">Subang</span></a>
+      <a href="/taiping" class="loc-link loc-cell" data-loc="taiping" data-region="north"><span class="txt-zh">太平</span><span class="txt-en">Taiping</span></a>
+    </div>
+    <div class="flex items-center justify-between pt-4 border-t border-brass-300/20 mt-5">
+      <span class="font-body text-xs text-white/55">Language / 语言</span>
+      <button onclick="toggleLang()" class="inline-flex items-center gap-1.5 border border-brass-400/35 font-body text-xs px-3 py-1.5 rounded-full text-white/85">
+        <i class="fa-solid fa-globe text-[.6rem]"></i>
+        <span id="lang-label-mob">中文</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div id="page-home" class="page active">
+
+    <!-- ── Hero headline ── -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 hero-bg"></div>
+      <img src="/assets/hero.jpg" class="absolute inset-0 w-full h-full object-cover object-center opacity-45" alt="">
+      <div class="absolute inset-0 opacity-15" style="background-image:radial-gradient(ellipse 2px 60px at 15% 30%,#E89A18 0%,transparent 100%),radial-gradient(ellipse 1px 80px at 18% 25%,#F2C040 0%,transparent 100%),radial-gradient(ellipse 2px 50px at 85% 60%,#CC3A28 0%,transparent 100%),radial-gradient(ellipse 1px 70px at 88% 55%,#E8604C 0%,transparent 100%);"></div>
+      <div class="absolute inset-0 hero-vignette"></div>
+
+      <div class="relative z-10 text-center px-6 max-w-2xl mx-auto">
+        <div class="inline-flex items-center gap-3 mb-7">
+          <span class="w-7 h-px bg-brass-400 opacity-80"></span>
+          <span class="font-body text-[.7rem] tracking-[.12em] text-brass-300 uppercase"><span class="txt-zh">全马 26 个地点 · 明码标价 · 随约随到</span><span class="txt-en">26 Locations · Clear Prices · Book Today</span></span>
+          <span class="w-7 h-px bg-brass-400 opacity-80"></span>
+        </div>
+
+        <h1 class="font-display text-[2.3rem] sm:text-[2.9rem] md:text-[3.4rem] font-extrabold text-white leading-[1.18] mb-5 tracking-tight">
+          <span class="txt-zh">专业按摩，说好的价格<br><span class="text-brass-300">马上到 · 看得见效果</span></span><span class="txt-en">Expert Massage, Honest Prices<br><span class="text-brass-300">Same-Day · Real Results</span></span>
+        </h1>
+
+        <p class="font-body text-white/70 text-[.95rem] md:text-base font-normal leading-relaxed max-w-lg mx-auto mb-6">
+          <span class="txt-zh">全马 26 个服务地点 · 男女皆宜 · 随约随到。价格写在卡片上，看了再决定，无任何隐形收费。</span><span class="txt-en">26 locations across Malaysia · All genders welcome · Same-day bookings. Prices are upfront — no surprises, no upselling.</span>
+        </p>
+        <div class="flex flex-wrap justify-center gap-x-5 gap-y-2">
+          <span class="flex items-center gap-1.5 text-white/55 text-[.72rem] font-body"><i class="fa-solid fa-circle-check text-brass-300 text-[.65rem]"></i><span class="txt-zh">明码标价</span><span class="txt-en">Fixed Pricing</span></span>
+          <span class="flex items-center gap-1.5 text-white/55 text-[.72rem] font-body"><i class="fa-solid fa-circle-check text-brass-300 text-[.65rem]"></i><span class="txt-zh">无隐形消费</span><span class="txt-en">No Hidden Fees</span></span>
+          <span class="flex items-center gap-1.5 text-white/55 text-[.72rem] font-body"><i class="fa-solid fa-circle-check text-brass-300 text-[.65rem]"></i><span class="txt-zh">男女皆宜</span><span class="txt-en">All Genders</span></span>
+          <span class="flex items-center gap-1.5 text-white/55 text-[.72rem] font-body"><i class="fa-solid fa-circle-check text-brass-300 text-[.65rem]"></i><span class="txt-zh">SOP 标准操作</span><span class="txt-en">SOP Standardized</span></span>
+        </div>
+      </div>
+
+      <div class="absolute bottom-7 left-1/2 -translate-x-1/2 animate-bounce text-white/35">
+        <i class="fa-solid fa-chevron-down text-xs"></i>
+      </div>
+    </section>
+
+    <!-- ── Find therapists (region filter) ── -->
+    <section id="find" class="scales-bg py-16 px-5" style="scroll-margin-top:var(--hdr-h,140px)">
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-10 reveal">
+          <div class="ornament justify-center">
+            <span class="font-display italic text-brass-300 text-sm"><span class="txt-zh">全国覆盖</span><span class="txt-en">Nationwide</span></span>
+          </div>
+          <h2 class="font-display text-3xl md:text-[2.4rem] font-light text-white mb-3"><span class="txt-zh">按地点查询技师</span><span class="txt-en">Find Therapists Near You</span></h2>
+          <p class="font-body text-white/65 text-sm max-w-md mx-auto leading-relaxed">
+            <span class="txt-zh">禅宁 SPA 已覆盖全马 26 个地点。选择地区，找到离您最近的分店和专业理疗师。</span><span class="txt-en">Zen Ning SPA now serves 26 locations across Malaysia. Pick a region to find your nearest branch and its therapists.</span>
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-4 mb-10 reveal">
+          <div class="bg-sand-50 border border-brass-300/30 rounded-2xl p-4 text-center">
+            <p class="font-display text-2xl text-sage-500 font-light">26</p>
+            <p class="font-body text-[.72rem] text-taupe-500 mt-0.5"><span class="txt-zh">个全马服务地点</span><span class="txt-en">Locations Nationwide</span></p>
+          </div>
+          <div class="bg-sand-50 border border-brass-300/30 rounded-2xl p-4 text-center">
+            <p class="font-display text-2xl text-sage-500 font-light">11</p>
+            <p class="font-body text-[.72rem] text-taupe-500 mt-0.5"><span class="txt-zh">个州属及直辖区</span><span class="txt-en">States & Territories</span></p>
+          </div>
+          <div class="bg-sand-50 border border-brass-300/30 rounded-2xl p-4 text-center">
+            <p class="font-display text-2xl text-sage-500 font-light"><span class="txt-zh">8年+</span><span class="txt-en">8+ Yrs</span></p>
+            <p class="font-body text-[.72rem] text-taupe-500 mt-0.5"><span class="txt-zh">专业理疗经验</span><span class="txt-en">Yrs of Expertise</span></p>
+          </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="tab-strip flex gap-2 overflow-x-auto pb-2 mb-2 reveal">
+          <button class="filter-tab tab-active" data-filter="all"      onclick="filterBranches('all')"><span class="txt-zh">全部</span><span class="txt-en">All</span> <span class="opacity-60">· 26</span></button>
+          <button class="filter-tab"            data-filter="kl"       onclick="filterBranches('kl')"><span class="txt-zh">吉隆坡 KL</span><span class="txt-en">KL</span> <span class="opacity-60">· 6</span></button>
+          <button class="filter-tab"            data-filter="selangor" onclick="filterBranches('selangor')"><span class="txt-zh">雪兰莪</span><span class="txt-en">Selangor</span> <span class="opacity-60">· 8</span></button>
+          <button class="filter-tab"            data-filter="north"    onclick="filterBranches('north')"><span class="txt-zh">北马</span><span class="txt-en">Northern</span> <span class="opacity-60">· 4</span></button>
+          <button class="filter-tab"            data-filter="south"    onclick="filterBranches('south')"><span class="txt-zh">南马</span><span class="txt-en">Southern</span> <span class="opacity-60">· 4</span></button>
+          <button class="filter-tab"            data-filter="east"     onclick="filterBranches('east')"><span class="txt-zh">东马 / 其他</span><span class="txt-en">East / Others</span> <span class="opacity-60">· 4</span></button>
+        </div>
+        <!-- Result count + locations in the selected region (filled by JS) -->
+        <p id="branch-count" class="font-body text-[.72rem] text-white/55 mt-1 mb-3 reveal"></p>
+        <div id="region-locs" class="flex flex-wrap gap-2 mb-7 reveal"></div>
+
+        <!-- Cards grid -->
+        <div id="branches-grid" class="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+          <!-- ── 吉隆坡 KL ─────────────────────────── -->
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="kl" style="background:#FFF5EC">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=47" alt="丘佩玲" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">8年</span><span class="txt-en">8 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">丘佩玲</span><span class="txt-en">Yew Pei Ling</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">泰式古法 · 深层理疗</span><span class="txt-en">Traditional Thai · Deep Tissue</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">吉隆坡 · KLCC 旗舰店</span><span class="txt-en">KL · KLCC Flagship</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="kl" style="background:#FFF5EC;transition-delay:.05s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=15" alt="林晶" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">6年</span><span class="txt-en">6 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">林晶</span><span class="txt-en">Lim Jing</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">瑞典式 · 芳香疗法</span><span class="txt-en">Swedish · Aromatherapy</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">吉隆坡 · 武吉免登店</span><span class="txt-en">KL · Bukit Bintang</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="kl" style="background:#FFF5EC;transition-delay:.10s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=20" alt="陈美玲" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">5年</span><span class="txt-en">5 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">陈美玲</span><span class="txt-en">Chan Mei Ling</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">热石疗法 · 经络推拿</span><span class="txt-en">Hot Stone · Meridian</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">吉隆坡 · 蒙基拉店</span><span class="txt-en">KL · Mont Kiara</span></span></div>
+            </div>
+          </div>
+          <!-- ── 雪兰莪 Selangor ─────────────────── -->
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="selangor" style="background:#FFF5EC">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=23" alt="苏菲亚" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">7年</span><span class="txt-en">7 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">苏菲亚</span><span class="txt-en">Sofiya</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">马来传统 · 深层理疗</span><span class="txt-en">Malay Traditional · Deep Tissue</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">雪兰莪 · 双威金字塔店</span><span class="txt-en">Selangor · Sunway Pyramid</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="selangor" style="background:#FFF5EC;transition-delay:.05s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=10" alt="诺芙儿" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">4年</span><span class="txt-en">4 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">诺芙儿</span><span class="txt-en">Norfull</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">泰式古法 · 指压</span><span class="txt-en">Traditional Thai · Acupressure</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">雪兰莪 · 沙亚南店</span><span class="txt-en">Selangor · Shah Alam</span></span></div>
+            </div>
+          </div>
+          <!-- ── 北马 North ───────────────────────── -->
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="north" style="background:#FFF5EC">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=52" alt="Coco" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">9年</span><span class="txt-en">9 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight">Coco</p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">泰式古法 · 草药蒸疗</span><span class="txt-en">Traditional Thai · Herbal Steam</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">槟城 · 乔治市店</span><span class="txt-en">Penang · Georgetown</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="north" style="background:#FFF5EC;transition-delay:.05s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=36" alt="阿美" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">5年</span><span class="txt-en">5 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">阿美</span><span class="txt-en">Amy</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">中式推拿 · 拔罐</span><span class="txt-en">Chinese Tuina · Cupping</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">霹雳 · 怡保店</span><span class="txt-en">Perak · Ipoh</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="north" style="background:#FFF5EC;transition-delay:.10s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=25" alt="Nadia" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">6年</span><span class="txt-en">6 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight">Nadia</p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">马来传统 · 指压</span><span class="txt-en">Malay Traditional · Acupressure</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">吉打 · 亚罗士打店</span><span class="txt-en">Kedah · Alor Setar</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="north" style="background:#FFF5EC;transition-delay:.15s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=33" alt="诗蒂" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">3年</span><span class="txt-en">3 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">诗蒂</span><span class="txt-en">Siti</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">瑞典式 · 芳香疗法</span><span class="txt-en">Swedish · Aromatherapy</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">玻璃市 · 加纳店</span><span class="txt-en">Perlis · Kangar</span></span></div>
+            </div>
+          </div>
+          <!-- ── 南马 South ───────────────────────── -->
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="south" style="background:#FFF5EC">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=16" alt="林如意" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">7年</span><span class="txt-en">7 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">林如意</span><span class="txt-en">Lim Ru Yi</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">深层理疗 · 经络</span><span class="txt-en">Deep Tissue · Meridian</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">柔佛 · 新山店</span><span class="txt-en">Johor · Johor Bahru</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="south" style="background:#FFF5EC;transition-delay:.05s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=29" alt="邓丽芸" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">5年</span><span class="txt-en">5 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">邓丽芸</span><span class="txt-en">Tang Li Yun</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">泰式古法 · 热石</span><span class="txt-en">Traditional Thai · Hot Stone</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">森美兰 · 芙蓉店</span><span class="txt-en">N. Sembilan · Seremban</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="south" style="background:#FFF5EC;transition-delay:.10s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=43" alt="Linh" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">4年</span><span class="txt-en">4 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight">Linh</p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">越南传统 · 指压</span><span class="txt-en">Vietnamese Traditional · Acupressure</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">马六甲 · 马六甲店</span><span class="txt-en">Melaka · Melaka</span></span></div>
+            </div>
+          </div>
+          <!-- ── 东马 / 其他 East ─────────────────── -->
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="east" style="background:#FFF5EC">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=38" alt="阿丽娜" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">6年</span><span class="txt-en">6 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">阿丽娜</span><span class="txt-en">Alina</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">马来传统 · 深层理疗</span><span class="txt-en">Malay Traditional · Deep Tissue</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">彭亨 · 关丹店</span><span class="txt-en">Pahang · Kuantan</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="east" style="background:#FFF5EC;transition-delay:.05s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=11" alt="诗华" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">8年</span><span class="txt-en">8 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">诗华</span><span class="txt-en">Si Hua</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">中式推拿 · 经络</span><span class="txt-en">Chinese Tuina · Meridian</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">吉兰丹 · 哥打巴鲁店</span><span class="txt-en">Kelantan · Kota Bharu</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="east" style="background:#FFF5EC;transition-delay:.10s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=18" alt="Nurul" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">5年</span><span class="txt-en">5 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight">Nurul</p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">马来传统 · 芳香疗法</span><span class="txt-en">Malay Traditional · Aromatherapy</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">登嘉楼 · 瓜拉登嘉楼店</span><span class="txt-en">Terengganu · Kuala Terengganu</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="east" style="background:#FFF5EC;transition-delay:.15s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=44" alt="玉珍" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">7年</span><span class="txt-en">7 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight"><span class="txt-zh">玉珍</span><span class="txt-en">Yu Zhen</span></p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">泰式古法 · 热石疗法</span><span class="txt-en">Traditional Thai · Hot Stone</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">沙巴 · 亚庇店</span><span class="txt-en">Sabah · Kota Kinabalu</span></span></div>
+            </div>
+          </div>
+          <div class="branch-card rounded-2xl overflow-hidden border border-brass-300/[.12] relative group cursor-default reveal" data-region="east" style="background:#FFF5EC;transition-delay:.20s">
+            <div class="aspect-[3/4] max-h-[75vw] md:max-h-none relative overflow-hidden bg-sand-200">
+              <img src="https://i.pravatar.cc/600?img=12" alt="Mei" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 38%,rgba(24,4,2,.93) 100%)"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <span class="font-body text-[.6rem] bg-brass-400/25 text-brass-300 px-2 py-0.5 rounded-full border border-brass-400/20 mb-1.5 inline-block"><span class="txt-zh">4年</span><span class="txt-en">4 Yrs</span></span>
+              <p class="font-display text-white text-[1.05rem] font-semibold leading-tight">Mei</p>
+              <p class="font-body text-white/50 text-[.68rem] mt-0.5"><span class="txt-zh">瑞典式 · 指压</span><span class="txt-en">Swedish · Acupressure</span></p>
+              <div class="mt-2.5 flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sage-400 text-[.6rem]"></i><span class="font-body text-white/55 text-[.65rem]"><span class="txt-zh">砂拉越 · 古晋店</span><span class="txt-en">Sarawak · Kuching</span></span></div>
+            </div>
+          </div>
+        
+        </div><!-- /branches-grid -->
+
+        <!-- Services prompt banner -->
+        <div class="mt-10 bg-umber-900 rounded-2xl p-6 reveal flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div class="text-center sm:text-left">
+            <p class="font-display text-lg font-light text-white mb-1"><span class="txt-zh">还没决定做什么疗程？</span><span class="txt-en">Not sure which treatment to book?</span></p>
+            <p class="font-body text-white/50 text-sm"><span class="txt-zh">泰式古法、精油 SPA、足底反射、热石疗法……价格时长一目了然，看完再预约。</span><span class="txt-en">Thai, aromatherapy, reflexology, hot stone and more — prices and durations upfront, so you can choose before you book.</span></p>
+          </div>
+          <a href="/services"
+             class="shrink-0 inline-flex items-center gap-2 bg-brass-400 hover:bg-brass-500 text-umber-900 font-body text-sm px-5 py-2.5 rounded-full transition-colors font-medium">
+            <i class="fa-solid fa-spa"></i><span class="txt-zh">查看服务项目</span><span class="txt-en">View Our Services</span><i class="fa-solid fa-arrow-right text-[.7rem]"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /page-home -->
+</main>
+
+<footer class="bg-umber-900 py-9 px-5">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+    <div class="text-center md:text-left">
+      <p class="font-display text-xl text-white/90">禅宁 <span class="text-brass-400">SPA</span></p>
+      <p class="text-white/35 text-[.68rem] font-body mt-1 tracking-widest">ZEN NING WELLNESS · KUALA LUMPUR</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3 items-center">
+      <a href="https://t.me/ZenNingSPA" target="_blank"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sage-500/30 hover:bg-sage-500/60 text-white/85 hover:text-white text-sm font-body transition-colors">
+        <i class="fa-brands fa-telegram text-base"></i>
+        <span class="txt-zh">联系我们 · Telegram</span>
+        <span class="txt-en">Contact via Telegram</span>
+      </a>
+      <a href="/blog"
+         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white/85 hover:text-white text-sm font-body transition-colors">
+        <i class="fa-solid fa-newspaper text-base"></i>
+        <span class="txt-zh">养生博客</span>
+        <span class="txt-en">Wellness Blog</span>
+      </a>
+    </div>
+    <p class="text-white/25 text-[.68rem] font-body">© 2026 禅宁 SPA · All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ═══════════ TELEGRAM FLOATING BUTTON ═══════════ -->
+<a id="tg-fab"
+   href="https://t.me/ZenNingSPA" target="_blank" rel="noopener"
+   aria-label="联系我们 Telegram"
+   style="position:fixed;bottom:calc(1.5rem + env(safe-area-inset-bottom,0px));right:1.25rem;z-index:50;display:flex;align-items:center;justify-content:center;width:3.5rem;height:3.5rem;border-radius:9999px;background:#27AEDC;text-decoration:none;transition:transform .15s,background .2s;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+</a>
+
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>
